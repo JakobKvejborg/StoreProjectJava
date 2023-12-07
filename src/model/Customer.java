@@ -1,5 +1,9 @@
 package model;
 
+
+/**
+ * @author Jonas
+ */
 public class Customer extends AbstractPerson{
 	private CustomerGroup customerGroup;
 	
