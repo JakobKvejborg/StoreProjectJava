@@ -1,5 +1,9 @@
 package model;
 
+
+/**
+ * @author Jonas
+ */
 public class CustomerGroup {
 	private String name;
 	private String type;
