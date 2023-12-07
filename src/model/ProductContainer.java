@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 /**
- * @author Jonas
+ * @author Jonas og Jakob
  */
 public class ProductContainer {
 	private static ProductContainer instance;
@@ -20,8 +20,17 @@ public class ProductContainer {
 	}
 	
 	public AbstractProduct findProduct(String barcode) {
-		//TODO
-		return null;
+		AbstractProduct res = null;
+		boolean found = false;
+		for (int i = 0; i < products.size() && !found; i++) {
+			//ProductContainer product = products.get(i);
+			AbstractProduct product = products.get(i);
+			if (product.getBarcode().equals(barcode)) {
+				res = product;
+				found = true;
+			}
+		}
+		return res;
 	}
 	
 	public boolean addProduct(AbstractProduct product) {

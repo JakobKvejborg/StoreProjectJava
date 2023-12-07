@@ -24,8 +24,13 @@ public abstract class AbstractProduct {
 		return true;
 	}
 
+	
 	public double getPrice() {
 		return price;
+	}
+
+	public String getBarcode() {
+		return barcode;
 	}
 	
 	
