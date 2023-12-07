@@ -1,5 +1,5 @@
 package controller;
 
-public class SaleCtrl {
+public class SaleCtrl implements SaleCtrlIF {
 
 }
