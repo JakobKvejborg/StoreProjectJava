@@ -22,4 +22,12 @@ public class Sale extends AbstractOrder{
 	public void addSaleOrderLine(SaleOrderLine saleOrderLine) {
 		saleOrderLines.add(saleOrderLine);
 	}
+	
+	public double getPrice(){
+		double total = 0.0d;
+		for(int i = 0; i < saleOrderLines.size(); i++) {
+			total += saleOrderLines.get(i).getPrice();
+		}
+		return total;
+	}
 }
