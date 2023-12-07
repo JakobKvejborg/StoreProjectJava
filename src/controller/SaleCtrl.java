@@ -1,9 +1,9 @@
 package controller;
 
-import model.AbstractProduct;
 import model.Customer;
 import model.OrderContainer;
 import model.Sale;
+import model.SellableIF;
 
 /**
  * @author Jonas og Jakob
@@ -23,7 +23,7 @@ public class SaleCtrl implements SaleCtrlIF {
 		return null;
 	}
 	
-	public AbstractProduct addProduct(String barcode) {
+	public SellableIF addProduct(String barcode) {
 		//TODO
 		return null;
 	}
@@ -32,9 +32,9 @@ public class SaleCtrl implements SaleCtrlIF {
 		//TODO
 		return null;
 	}
-	
-	public Sale compSale(double payment) {
-		//TODO
+
+	public Sale completeSale(double payment) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }
