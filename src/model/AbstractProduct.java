@@ -20,10 +20,7 @@ public abstract class AbstractProduct {
 		this.discount = discount;
 	}
 	
-	public boolean isUnique() {
-		return true;
-	}
-
+	public abstract boolean isUnique();
 	
 	public double getPrice() {
 		return price;

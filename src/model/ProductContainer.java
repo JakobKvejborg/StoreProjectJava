@@ -37,6 +37,7 @@ public class ProductContainer {
 		boolean res = false;
 		if(findProduct(product.getBarcode()) == null) {
 			products.add(product);
+			//TODO: sort the list
 			res = true;
 		}
 		return res;
