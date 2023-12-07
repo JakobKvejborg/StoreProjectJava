@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * The order that is used for selling different sellable products.
  * 
- * @author Rumu11
+ * @author Penrose
  * @version 07/12/2023
  */
 public class Sale extends AbstractOrder{

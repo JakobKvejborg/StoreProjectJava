@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 /**
  * the abstract order than all the different lending or sale types inherit from.
  * 
- * @author Rumu11
+ * @author Penrose
  * @version 07/12/2023
  */
 public abstract class AbstractOrder {

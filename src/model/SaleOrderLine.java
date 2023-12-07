@@ -2,10 +2,10 @@ package model;
 
 
 /**
- * contains a sellable product, and the quantity for the product. '
+ * contains a sellable product, and the quantity for the product.
  * Should never have a quantity more than 1 for unique products.
  * 
- * @author Rumu11
+ * @author Penrose
  * @version 07/12/2023
  */
 public class SaleOrderLine {
