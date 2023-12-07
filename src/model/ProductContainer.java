@@ -9,7 +9,7 @@ public class ProductContainer {
 	private ArrayList<AbstractProduct> products;
 	
 	public ProductContainer() {
-	
+	ArrayList<AbstractProduct> products = new ArrayList<>();
 	}
 	
 	public static ProductContainer getInstance() {
@@ -32,10 +32,14 @@ public class ProductContainer {
 		}
 		return res;
 	}
-	
+	//TODO make sure barcode is Unique
 	public boolean addProduct(AbstractProduct product) {
-		//TODO
-		return true;
+		boolean res = false;
+		if(findProduct(product.getBarcode()) == null) {
+			products.add(product);
+			res = true;
+		}
+		return res;
 	}
 }
 
