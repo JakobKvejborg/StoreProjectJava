@@ -13,6 +13,7 @@ public abstract class AbstractOrder {
 	private int orderNo;
 	private LocalDateTime date; 
 	private Customer customer;
+	private Employee employee;
 	
 	public AbstractOrder(int orderNo, LocalDateTime date) {
 		this.orderNo = orderNo;
@@ -21,6 +22,10 @@ public abstract class AbstractOrder {
 	
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+	
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 	
 }
