@@ -1,5 +1,6 @@
 package controller;
 
+import model.AbstractProduct;
 import model.ProductContainer;
 
 /**
@@ -12,9 +13,7 @@ public class ProductCtrl {
 	
 	}
 	
-	public ProductContainer findProduct(String barcode) {
-		//TODO
-		return null;
-		//return productContainer.findProduct(barcode);
+	public AbstractProduct findProduct(String barcode) {
+		return productContainer.findProduct(barcode);
 	}
 }
