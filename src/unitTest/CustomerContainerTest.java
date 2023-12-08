@@ -17,7 +17,7 @@ public class CustomerContainerTest {
 	private CustomerContainer customerContainer;
 	
 	/**
-	 * setUp() runs before each test method.
+	 * <code>setUp()</code> runs before each test method.
 	 */
 	@BeforeEach
 	public void setUp() {
