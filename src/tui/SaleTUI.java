@@ -27,17 +27,32 @@ public class SaleTUI {
 	}
 	
 	public void start() {
-		
+		createSale();
 	}
 	
 	private void createSale() {
 		saleCtrl.makeSale();
+		
 		System.out.println("Input product barcode.");
 		String barcode = textInput.readString();
 		SellableIF product = saleCtrl.addProduct(barcode);
 		if(product == null) {
 			System.out.println("could not read barcode, "
 					+ "or product could not be sold, try again");
+		}
+		else {
+			boolean quantitySuccess = false;
+			if(!product.isUnique()) {
+				while(!quantitySuccess) {
+					System.out.println("Input quantity.");
+					int quantity = textInput.readInt();
+					quantitySuccess = saleCtrl.setQuantity(quantity);
+					if(!quantitySuccess) {
+						System.out.println("could not set the quantity to: " + quantity);
+					}
+				}
+			}
+			
 		}
 		
 	}

@@ -8,6 +8,7 @@ public abstract class AbstractProduct {
 	private String descripton;
 	private String barcode;
 	private double purchasePrice;
+	//TODO: Make price not break old sales when it is changed.
 	private double price;
 	private int discount;
 	
