@@ -42,22 +42,30 @@ public class SaleTUI {
 		Sale sale = saleCtrl.makeSale();
 		
 		boolean allProductsAdded = false;
-		while (allProductsAdded) {
-			System.out.println("Input product barcode. If all products have been added, input next.");
+		System.out.println("Input product barcode. If all products have been added, input next.");
+		while (!allProductsAdded) {
 			String barcode = textInput.readString();
 			if (isQuitText(barcode)) {
 				allProductsAdded = true;
 			} else {
-				addProduct(barcode);
+				SellableIF product = addProduct(barcode);
+				System.out.println("Input product barcode. If all products have been added, input next.");
 			}
 		}
 		Customer customer = setCustomer();
 		System.out.println("total price of sale:" + sale.getPrice());
-		
+		double payment = inputPayment();
+		sale = saleCtrl.completeSale(payment);
+		if(sale == null) {
+			System.out.println("The sale could not be completed.");
+		}
+		else {
+			printSale(sale);
+		}
 		
 	}
 	
-	private void addProduct(String barcode) {
+	private SellableIF addProduct(String barcode) {
 		SellableIF product = saleCtrl.addProduct(barcode);
 		if (product == null) {
 			System.out.println("could not read barcode, or product could not be sold, try again");
@@ -66,6 +74,7 @@ public class SaleTUI {
 				setQuantity();
 			}
 		}
+		return product;
 	}
 	
 	private void setQuantity() {
@@ -84,10 +93,10 @@ public class SaleTUI {
 		Customer customer = null;
 		boolean success = false;
 		while (!success) {
-			System.out.println("input customr name. If no customer, input \"next\".");
+			System.out.println("input customer phone number. If no customer, input \"next\".");
 			String phone = textInput.readString();
 			if (isQuitText(phone)) {
-				customer = null;
+				success = true;
 			} else {
 				customer = saleCtrl.setCustomer(phone);
 				if(customer != null) {
@@ -102,11 +111,16 @@ public class SaleTUI {
 
 	}
 	
-	private double setPayment() {
+	private double inputPayment() {
 		//TODO: make this accept payment by card and such, never happening in the time we have been alloted.
 		double payment = textInput.readDouble();
 		
 		return payment;
+	}
+	
+	private void printSale(Sale sale) {
+		//TODO: print the sale info.
+		System.out.println("Sale completed!");
 	}
 
 }
