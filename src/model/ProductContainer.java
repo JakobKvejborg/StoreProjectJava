@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 /**
+ * Contains a list of products
  * @author Jonas og Jakob
  * @version 07/12/2023
  * @since 07/12/2023

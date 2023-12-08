@@ -16,14 +16,20 @@ public class OrderContainer {
 	private OrderContainer() {
 		orders = new ArrayList<>();
 	}
-	
+/**
+ * @return instance of the singleton
+ */
 	public static OrderContainer getInstance() {
 		if(instance == null) {
 			instance = new OrderContainer();
 		}
 		return instance;
 	}
-	
+/**
+ * adds an order to list
+ * @param order		
+ * @return 
+ */
 	public boolean addOrder(AbstractOrder order) {
 		//TODO: Make sure no two orders can have the same orderNo
 		orders.add(order);
