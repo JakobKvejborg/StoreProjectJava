@@ -28,10 +28,18 @@ public class TextInput {
 	
 	public int readInt() {
 		while(!scanner.hasNextInt()) {
-			System.out.println("input må kun være et tal, prøv igen.");
+			System.out.println("input må kun være et helt tal, prøv igen.");
 			scanner.nextLine();
 		}
 		return scanner.nextInt();
+	}
+	
+	public double readDouble() {
+		while(!scanner.hasNextDouble()) {
+			System.out.println("input må kun være et tal, prøv igen.");
+			scanner.nextLine();
+		}
+		return scanner.nextDouble();
 	}
 	
 	public String readString() {

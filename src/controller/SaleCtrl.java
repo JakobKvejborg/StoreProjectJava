@@ -1,6 +1,7 @@
 package controller;
 
 import model.Customer;
+import model.Employee;
 import model.OrderContainer;
 import model.Sale;
 import model.SellableIF;
@@ -9,13 +10,15 @@ import model.SellableIF;
  * @author Jonas og Jakob
  */
 public class SaleCtrl implements SaleCtrlIF {
+	
+	private Employee employee;
 	private OrderContainer orderContainer;
 	private ProductCtrl productCtrl;
 	private CustomerCtrl customerCtrl;
 	private Sale sale;
 	
-	public SaleCtrl() {
-	
+	public SaleCtrl(Employee employee) {
+		this.employee = employee;
 	}
 
 	public Customer setCustomer(String phone) {
