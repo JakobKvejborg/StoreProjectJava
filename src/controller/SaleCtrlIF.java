@@ -10,12 +10,14 @@ import model.SellableIF;
  * so mock SaleCtrl is possible to make.
  * 
  * @author Penrose
- * @version 07/12/2023
+ * @version 08/12/2023
+ * @since 07/12/2023
  */
 public interface SaleCtrlIF {
 
 	public Customer setCustomer(String phone);
 	public SellableIF addProduct(String barcode);
+	public boolean setQuantity(int quantity);
 	public Sale makeSale();
 	public Sale completeSale(double payment);
 	
