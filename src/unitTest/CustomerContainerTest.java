@@ -12,7 +12,6 @@ import model.CustomerContainer;
  * @author Patrick Thor Sorenson De Siqueira
  * @version 0.1.0
  */
-
 public class CustomerContainerTest {
 	
 	private CustomerContainer customerContainer;
