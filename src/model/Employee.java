@@ -7,7 +7,14 @@ package model;
  */
 public class Employee extends AbstractPerson{
 	private String username;
-
+/**
+ * calls the AbstractPerson class
+ * @param name
+ * @param address
+ * @param phone
+ * @param email
+ * @param username
+ */
 	public Employee(String name, String address, String phone, String email, String username) {
 		super(name, address, phone, email);
 		this.username = username;
