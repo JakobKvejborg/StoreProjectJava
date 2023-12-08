@@ -20,6 +20,7 @@ public class ProductContainer {
 	}
 	
 	public AbstractProduct findProduct(String barcode) {
+		//Binary Search could be implemented if the list is always sorted.
 		AbstractProduct res = null;
 		boolean found = false;
 		for (int i = 0; i < products.size() && !found; i++) {
