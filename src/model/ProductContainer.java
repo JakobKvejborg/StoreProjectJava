@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 /**
  * @author Jonas og Jakob
+ * @version 07/12/2023
+ * @since 07/12/2023
  */
 public class ProductContainer {
 	private static ProductContainer instance;
@@ -19,10 +21,10 @@ public class ProductContainer {
 		return instance;
 	}
 	
-	/**
-	 * kjjkhkjhkjhjk
-	 * @param barcode
-	 * @return
+	/** Finds a product by barcode
+	 * is O(n) 
+	 * @param barcode		a barcode in string
+	 * @return product, null if no product is found
 	 */
 	public AbstractProduct findProduct(String barcode) {
 		AbstractProduct res = null;
@@ -37,6 +39,11 @@ public class ProductContainer {
 		}
 		return res;
 	}
+	/** adds a product to list
+	 * 
+	 * @param product		represents a product
+	 * @return true if the product has been added to the list
+	 */
 	//TODO make sure barcode is Unique
 	public boolean addProduct(AbstractProduct product) {
 		boolean res = false;
