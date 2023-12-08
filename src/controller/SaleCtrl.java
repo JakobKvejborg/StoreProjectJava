@@ -23,11 +23,15 @@ public class SaleCtrl implements SaleCtrlIF {
 		return null;
 	}
 	
-	//Maybe this function should throw errors if the product isn't sellable,
+	//Maybe this function should throw exceptions if the product isn't sellable,
 	//or if no product is found.
 	public SellableIF addProduct(String barcode) {
 		//TODO
 		return null;
+	}
+	
+	public boolean setQuantity(int quantity) {
+		return false;
 	}
 	
 	public Sale makeSale() {

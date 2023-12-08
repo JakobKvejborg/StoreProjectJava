@@ -11,9 +11,9 @@ import model.SellableIF;
  * The Text User Interface responsible for creating sales.
  * 
  * @author Penrose
- * @version 07/12/2023
+ * @version 08/12/2023
+ * @since 07/12/2023
  */
-
 public class SaleTUI {
 	
 	private SaleCtrlIF saleCtrl;
