@@ -11,6 +11,6 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 	}
 	
 	public boolean isUnique() {
-		return abstractProduct.isUnique();
+		return false;
 	}
 }

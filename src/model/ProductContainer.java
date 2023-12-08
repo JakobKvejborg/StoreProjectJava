@@ -9,7 +9,7 @@ public class ProductContainer {
 	private ArrayList<AbstractProduct> products;
 	
 	public ProductContainer() {
-	
+	ArrayList<AbstractProduct> products = new ArrayList<>();
 	}
 	
 	public static ProductContainer getInstance() {
@@ -19,6 +19,11 @@ public class ProductContainer {
 		return instance;
 	}
 	
+	/**
+	 * kjjkhkjhkjhjk
+	 * @param barcode
+	 * @return
+	 */
 	public AbstractProduct findProduct(String barcode) {
 		//Binary Search could be implemented if the list is always sorted.
 		AbstractProduct res = null;
@@ -33,10 +38,15 @@ public class ProductContainer {
 		}
 		return res;
 	}
-	
+	//TODO make sure barcode is Unique
 	public boolean addProduct(AbstractProduct product) {
-		//TODO
-		return true;
+		boolean res = false;
+		if(findProduct(product.getBarcode()) == null) {
+			products.add(product);
+			//TODO: sort the list
+			res = true;
+		}
+		return res;
 	}
 }
 

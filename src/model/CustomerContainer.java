@@ -21,7 +21,7 @@ public class CustomerContainer {
 	}
 	
 	/**
-	 * This method creates a instance if it does no exist
+	 * This method creates a instance of CustomerContainer if it does no exist (singleton)
 	 * 
 	 * @return instance
 	 */
