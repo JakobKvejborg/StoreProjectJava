@@ -19,6 +19,11 @@ public class ProductContainer {
 		return instance;
 	}
 	
+	/**
+	 * kjjkhkjhkjhjk
+	 * @param barcode
+	 * @return
+	 */
 	public AbstractProduct findProduct(String barcode) {
 		AbstractProduct res = null;
 		boolean found = false;
