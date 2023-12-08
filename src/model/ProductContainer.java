@@ -21,7 +21,8 @@ public class ProductContainer {
 		return instance;
 	}
 	
-	/** Finds a product by barcode
+	/** 
+	 * Finds a product by barcode
 	 * is O(n) 
 	 * @param barcode		a barcode in string
 	 * @return product, null if no product is found
@@ -40,8 +41,8 @@ public class ProductContainer {
 		}
 		return res;
 	}
-	/** adds a product to list
-	 * 
+	/** 
+	 * adds a product to list 
 	 * @param product		represents a product
 	 * @return true if the product has been added to the list
 	 */
