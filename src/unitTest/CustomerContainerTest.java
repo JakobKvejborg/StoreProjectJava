@@ -10,7 +10,7 @@ import model.CustomerContainer;
 
 /**
  * @author Patrick Thor Sorenson De Siqueira
- * @version 
+ * @version 0.1.0
  */
 
 public class CustomerContainerTest {
