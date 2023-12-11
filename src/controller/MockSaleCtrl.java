@@ -9,6 +9,14 @@ import model.SaleOrderLine;
 import model.SellableIF;
 import model.ShelfProduct;
 
+/**
+ * Mock version of SaleCtrl.
+ * Purely for testing purposes, should not be in the final version.
+ * 
+ * @author Penrose
+ * @version 11/12/2023
+ * @since 11/12/2023
+ */
 public class MockSaleCtrl implements SaleCtrlIF {
 	
 	private Sale sale;
