@@ -132,8 +132,15 @@ public class SaleTUI {
 		System.out.println("---------------");
 		for(int i = 0; i < sale.getSaleOrderLinesSize(); i++) {
 			SaleOrderLine saleOrderLine = sale.getSaleOrderLine(i);
-			System.out.println(saleOrderLine.getPrice());
+			System.out.print(saleOrderLine.getProduct().getName());
+			System.out.print("\t");
+			System.out.print(saleOrderLine.getPrice());
+			System.out.print("\t x");
+			System.out.println(saleOrderLine.getQuantity());
 		}
+		System.out.println("---------------");
+		System.out.print("total:\t");
+		System.out.println(sale.getPrice());
 
 
 	}

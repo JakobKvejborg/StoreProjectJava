@@ -30,7 +30,7 @@ public class SaleOrderLine {
 	 * @return the price from product
 	 */
 	public double getPrice() {
-		return product.getPrice();
+		return product.getPrice() * quantity;
 	}
 	
 	/**
@@ -41,7 +41,10 @@ public class SaleOrderLine {
 		return product;
 	}
 	
-
+	/**
+	 * gets the quantity
+	 * @return the quantity
+	 */
 	public int getQuantity() {
 		return quantity;
 	}
@@ -49,5 +52,4 @@ public class SaleOrderLine {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
 }
