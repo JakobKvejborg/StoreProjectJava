@@ -5,6 +5,7 @@ import model.Customer;
 import model.Employee;
 import model.OrderContainer;
 import model.Sale;
+import model.SaleOrderLine;
 import model.SellableIF;
 
 /**
