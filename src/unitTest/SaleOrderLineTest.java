@@ -10,7 +10,6 @@ import model.ShelfProduct;
 
 /**
  * This class represents a test of SaleOrderLine
- * 
  * @author Majbritt Kjeldgaard Harsfort
  * @version 11/12/2023
  */
