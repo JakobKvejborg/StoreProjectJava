@@ -14,7 +14,6 @@ public interface SellableIF {
 	 */
 	double getPrice();
 	/**
-	 * 
 	 * @return true if is only allowed to sell quantities of 1
 	 */
 	boolean isUnique();
