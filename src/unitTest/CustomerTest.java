@@ -10,7 +10,7 @@ import model.CustomerGroup;
 /**
  * This class represents a test of Customer
  * @author Majbritt Kjeldgaard Harsfort
- * @version 0.1.0
+ * @version 11/12/2023
  */
 
 public class CustomerTest {
