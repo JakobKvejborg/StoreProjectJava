@@ -12,7 +12,7 @@ import model.ShelfProduct;
  * This class represents a test of SaleOrderLine
  * 
  * @author Majbritt Kjeldgaard Harsfort
- * @version 0.1.0
+ * @version 11/12/2023
  */
 
 public class SaleOrderLineTest {
