@@ -17,4 +17,8 @@ public interface SellableIF {
 	 * @return true if is only allowed to sell quantities of 1
 	 */
 	boolean isUnique();
+	/**
+	 * @return The name of the Sellable.
+	 */
+	String getName();
 }

@@ -29,4 +29,13 @@ public class SaleOrderLine {
 	public double getPrice() {
 		return product.getPrice();
 	}
+	
+	/**
+	 * gets the product
+	 * @return the product
+	 */
+	public SellableIF getProduct() {
+		return product;
+	}
+	
 }

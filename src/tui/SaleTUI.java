@@ -9,6 +9,7 @@ import model.Customer;
 import model.Employee;
 import model.SellableIF;
 import model.Sale;
+import model.SaleOrderLine;
 
 
 /**
@@ -124,7 +125,17 @@ public class SaleTUI {
 	
 	private void printSale(Sale sale) {
 		//TODO: print the sale info.
+		if(sale == null) {
+			System.out.println("Sale could not be completed!");
+		}
 		System.out.println("Sale completed!");
+		System.out.println("---------------");
+		for(int i = 0; i < sale.getSaleOrderLinesSize(); i++) {
+			SaleOrderLine saleOrderLine = sale.getSaleOrderLine(i);
+			System.out.println(saleOrderLine.getPrice());
+		}
+
+
 	}
 
 }

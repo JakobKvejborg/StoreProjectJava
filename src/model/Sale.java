@@ -31,7 +31,7 @@ public class Sale extends AbstractOrder{
 		saleOrderLines.add(saleOrderLine);
 	}
 /**
- * Gets price of all products for a sale
+ * Gets total price of all products for a sale
  * @return a double representing the total cost of a sale
  */
 	public double getPrice(){
@@ -40,5 +40,20 @@ public class Sale extends AbstractOrder{
 			total += saleOrderLines.get(i).getPrice();
 		}
 		return total;
+	}
+	
+	/**
+	 * @param index of the <code>SaleOrderLine</code>
+	 * @return The <code>SaleOrderLine</code>
+	 */
+	public SaleOrderLine getSaleOrderLine(int index) {
+		return saleOrderLines.get(index);
+	}
+	
+	/**
+	 * @return The the number of <code>SaleOrderLine</code>s in the sale.
+	 */
+	public int getSaleOrderLinesSize() {
+		return saleOrderLines.size();
 	}
 }
