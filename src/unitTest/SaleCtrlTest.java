@@ -14,7 +14,14 @@ import org.junit.jupiter.api.Test;
  * @version 11/12/2023
  * @since 11/12/2023
  */
-
+/**
+ * TODO test if can find customer by phone number
+ * TODO test if can find product
+ * TODO test if can set quantity
+ * TODO test if can create new sale
+ * TODO test if can complete sale
+ * all done together in a test!
+ */
 class SaleCtrlTest {
 
 	@BeforeAll
