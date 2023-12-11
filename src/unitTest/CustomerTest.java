@@ -35,14 +35,14 @@ public class CustomerTest {
 	@Test
 	public void testGetMaxDiscountWithDiscount() {
 		customer.setCustomerGroup(groupWithDiscount);
-		int maxDiscount = customer.getMaxDiscount();
+		double maxDiscount = customer.getMaxDiscount();
 		Assertions.assertEquals(15,maxDiscount);	
 	}
 	
 	@Test
 	public void testGetMaxDiscountWithoutDiscount() {
 		customer.setCustomerGroup(groupWithoutDiscount);
-		int maxDiscount = customer.getMaxDiscount()	;
+		double maxDiscount = customer.getMaxDiscount()	;
 		Assertions.assertEquals(0,maxDiscount);	
 		}
 }
