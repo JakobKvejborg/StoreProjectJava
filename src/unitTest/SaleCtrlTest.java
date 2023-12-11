@@ -9,13 +9,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * represents a test of ProductCtrl
+ * 
  * @author Julia Rafn
  * @version 11/12/2023
  * @since 11/12/2023
  */
 
-class ProductCtrlTest {
+class SaleCtrlTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
