@@ -31,5 +31,11 @@ public abstract class AbstractPerson {
 	public String getPhone() {
 		return phone;
 	}
+	
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+
 
 }
