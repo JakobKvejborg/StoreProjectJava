@@ -2,6 +2,9 @@ package model;
 
 /**
  * @author Jonas
+ * 
+ *@version 11/12/2023
+ *@since 07/12/2023
  */
 public class ShelfProduct extends AbstractProduct implements SellableIF {
 	private AbstractProduct abstractProduct;

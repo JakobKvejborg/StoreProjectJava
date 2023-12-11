@@ -15,7 +15,7 @@ import model.Sale;
  * The Text User Interface responsible for creating sales.
  * 
  * @author Penrose
- * @version 08/12/2023
+ * @version 11/12/2023
  * @since 07/12/2023
  */
 public class SaleTUI {
