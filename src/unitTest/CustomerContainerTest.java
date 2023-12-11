@@ -30,7 +30,7 @@ public class CustomerContainerTest {
 	}	
 	
 	/**
-	 * Svende is added to the <code>ArrayList</code> named <code>customers</code> in the <code>CustomerContainer</code> class
+	 * Svende is added to the <code>ArrayList</code> named <code>customer</code> in the <code>CustomerContainer</code> class
 	 * <code>assertEquals</code> method compares the output of <code>findCustomer</code> with the created <code>customer</code>
 	 */
 	@Test

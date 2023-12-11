@@ -2,6 +2,7 @@ package tui;
 
 import java.util.Scanner;
 
+import controller.MockSaleCtrl;
 import controller.SaleCtrl;
 import controller.SaleCtrlIF;
 import model.Customer;
@@ -14,7 +15,7 @@ import model.Sale;
  * The Text User Interface responsible for creating sales.
  * 
  * @author Penrose
- * @version 08/12/2023
+ * @version 11/12/2023
  * @since 07/12/2023
  */
 public class SaleTUI {
@@ -25,7 +26,7 @@ public class SaleTUI {
 
 	public SaleTUI(Employee employee) {
 		this.employee = employee;
-		saleCtrl = new SaleCtrl(employee);
+		saleCtrl = new MockSaleCtrl(employee);
 		textInput = TextInput.getInstance();
 	}
 
@@ -85,6 +86,9 @@ public class SaleTUI {
 			quantitySuccess = saleCtrl.setQuantity(quantity);
 			if (!quantitySuccess) {
 				System.out.println("could not set the quantity to: " + quantity);
+			}
+			else {
+				System.out.println("quantity set successfully");
 			}
 		}
 	}
