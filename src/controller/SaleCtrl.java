@@ -1,5 +1,7 @@
 package controller;
 
+import java.time.LocalDateTime;
+
 import model.AbstractProduct;
 import model.Customer;
 import model.Employee;
@@ -37,22 +39,35 @@ public class SaleCtrl implements SaleCtrlIF {
 		product = null;
 		if(abstractProduct instanceof SellableIF) {
 			product = (SellableIF) abstractProduct;
+			sale.addSaleOrderLine(new SaleOrderLine(product, 1));
 		}
 		return product;
 	}
 	
 	public boolean setQuantity(int quantity) {
-		
-		return false;
+		if(quantity < 1) {
+			return false;
+		}
+		SaleOrderLine saleOrderLine = sale.getSaleOrderLine(sale.getSaleOrderLinesSize() - 1);
+		if(saleOrderLine.getProduct().isUnique()) {
+			return false;
+		}
+		saleOrderLine.setQuantity(quantity);
+		return true;
 	}
 	
 	public Sale makeSale() {
-		//TODO
-		return null;
+		//TODO Assign proper orderNo
+		sale = new Sale(1, LocalDateTime.now());
+		return sale;
 	}
 
 	public Sale completeSale(double payment) {
-		// TODO Auto-generated method stub
+		// TODO make sure the sale has proper values
+		if(payment >= sale.getPrice()) {
+			orderContainer.addOrder(sale);
+			return sale;
+		}
 		return null;
 	}
 }
