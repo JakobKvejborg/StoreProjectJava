@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
  * @since 11/12/2023
  */
 
-class ProductCtrl {
+class ProductCtrlTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
