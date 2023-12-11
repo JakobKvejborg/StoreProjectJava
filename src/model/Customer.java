@@ -33,6 +33,11 @@ public class Customer extends AbstractPerson{
 		this.customerGroup = customerGroup;
 	}
 	
+	
+	public void setPhone(String phone) {
+		super.setPhone(phone);
+	}
+	
 	/**
      * Retrieves the maximum discount applicable to this customer based on their group.
      *

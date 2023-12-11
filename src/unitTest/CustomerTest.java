@@ -18,6 +18,9 @@ public class CustomerTest {
 	private CustomerGroup groupWithDiscount;
 	private CustomerGroup groupWithoutDiscount;
 	
+	/**
+	 * <code>setUp()</code> runs before each test method.
+	 */
 	@BeforeEach
 	public void setUp() {
 		customer = new Customer("John Doe","Gade 1","1234567890","john@example.dk");		
