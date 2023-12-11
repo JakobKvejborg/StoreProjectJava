@@ -35,7 +35,7 @@ public class Customer extends AbstractPerson{
      *
      * @return The maximum discount available for this customer.
      */
-	public int getMaxDiscount() {
+	public double getMaxDiscount() {
 		return customerGroup.getMaxDiscount();
 		//TODO
 	}

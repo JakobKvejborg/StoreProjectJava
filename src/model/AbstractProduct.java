@@ -10,9 +10,9 @@ public abstract class AbstractProduct {
 	private double purchasePrice;
 	//TODO: Make price not break old sales when it is changed.
 	private double price;
-	private int discount;
+	private double discount;
 	
-	public AbstractProduct(String name, String descripton, String barcode, double purchasePrice, double price, int discount) {
+	public AbstractProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount) {
 		this.name = name;
 		this.descripton = descripton;
 		this.barcode = barcode;
