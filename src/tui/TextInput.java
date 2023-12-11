@@ -31,7 +31,9 @@ public class TextInput {
 			System.out.println("input må kun være et helt tal, prøv igen.");
 			scanner.nextLine();
 		}
-		return scanner.nextInt();
+		int res = scanner.nextInt();
+		scanner.nextLine();
+		return res;
 	}
 	
 	public double readDouble() {
@@ -39,7 +41,9 @@ public class TextInput {
 			System.out.println("input må kun være et tal, prøv igen.");
 			scanner.nextLine();
 		}
-		return scanner.nextDouble();
+		double res = scanner.nextDouble();
+		scanner.nextLine();
+		return res;
 	}
 	
 	public String readString() {
