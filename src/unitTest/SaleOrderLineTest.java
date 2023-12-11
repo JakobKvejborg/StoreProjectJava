@@ -8,20 +8,31 @@ import model.SaleOrderLine;
 import model.SellableIF;
 import model.ShelfProduct;
 
+/**
+ * This class represents a test of SaleOrderLine
+ * 
+ * @author Majbritt Kjeldgaard Harsfort
+ * @version 0.1.0
+ */
+
 public class SaleOrderLineTest {
 	private SaleOrderLine saleOrderLine;
 	private SellableIF product;
 
-@BeforeEach
-public void setup() {
-	product = new ShelfProduct("Hammer", "Used to hit nails", "0666", 20.50, 50.0, 10);
-	saleOrderLine = new SaleOrderLine(product,1);
-}
+	/**
+	 * <code>setUp()</code> runs before each test method.
+	 */
 
-@Test
-public void testGetPrice() {
-	double expectedPrice = 50.0;
-	double actualPrice = saleOrderLine.getPrice();
-	Assertions.assertEquals(expectedPrice, actualPrice,0.01);
+	@BeforeEach
+	public void setUp() {
+		product = new ShelfProduct("Hammer", "Used to hit nails", "0666", 20.50, 50.0, 10);
+		saleOrderLine = new SaleOrderLine(product, 1);
+	}
+
+	@Test
+	public void testGetPrice() {
+		double expectedPrice = 50.0;
+		double actualPrice = saleOrderLine.getPrice();
+		Assertions.assertEquals(expectedPrice, actualPrice, 0.01);
 	}
 }
