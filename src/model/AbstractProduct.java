@@ -2,6 +2,9 @@ package model;
 
 /**
  * @author Jonas
+ * 
+ *@version 11/12/2023
+ *@since 07/12/2023
  */
 public abstract class AbstractProduct {
 	private String name;
@@ -10,9 +13,9 @@ public abstract class AbstractProduct {
 	private double purchasePrice;
 	//TODO: Make price not break old sales when it is changed.
 	private double price;
-	private int discount;
+	private double discount;
 	
-	public AbstractProduct(String name, String descripton, String barcode, double purchasePrice, double price, int discount) {
+	public AbstractProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount) {
 		this.name = name;
 		this.descripton = descripton;
 		this.barcode = barcode;

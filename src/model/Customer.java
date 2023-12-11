@@ -3,6 +3,9 @@ package model;
 
 /**
  * @author Jonas
+ * 
+ *@version 11/12/2023
+ *@since 07/12/2023
  */
 public class Customer extends AbstractPerson{
 	private CustomerGroup customerGroup;
@@ -30,12 +33,17 @@ public class Customer extends AbstractPerson{
 		this.customerGroup = customerGroup;
 	}
 	
+	
+	public void setPhone(String phone) {
+		super.setPhone(phone);
+	}
+	
 	/**
      * Retrieves the maximum discount applicable to this customer based on their group.
      *
      * @return The maximum discount available for this customer.
      */
-	public int getMaxDiscount() {
+	public double getMaxDiscount() {
 		return customerGroup.getMaxDiscount();
 		//TODO
 	}
