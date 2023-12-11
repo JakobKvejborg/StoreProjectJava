@@ -49,6 +49,10 @@ public class SaleOrderLine {
 		return quantity;
 	}
 
+	/**
+	 * sets the Quantity
+	 * @param quantity
+	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
