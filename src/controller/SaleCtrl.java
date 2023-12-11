@@ -34,6 +34,7 @@ public class SaleCtrl implements SaleCtrlIF {
 	
 	//Maybe this function should throw exceptions if the product isn't sellable,
 	//or if no product is found.
+	
 	public SellableIF addProduct(String barcode) {
 		AbstractProduct abstractProduct = productCtrl.findProduct(barcode);
 		product = null;
