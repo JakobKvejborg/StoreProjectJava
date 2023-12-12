@@ -44,6 +44,10 @@ public abstract class AbstractOrder {
 		return customer;
 	}
 	
+	public LocalDateTime getDate() {
+		return date;
+	}
+	
 	/**
      * Sets the employee attached to this order.
      *

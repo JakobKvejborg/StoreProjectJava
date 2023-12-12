@@ -1,5 +1,8 @@
 package model;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 /**
  * is a not unique product
  * @author Jonas
@@ -9,15 +12,29 @@ package model;
  */
 public class ShelfProduct extends AbstractProduct implements SellableIF {
 	
+	private ArrayList<ShelfStock> stocks;	
 	//TODO: Make price not break old sales when it is changed.
-	private double price;
+	private TemporalPriceList price;
 	//TODO: Make discount not break old sales when it is changed.
-	private double discount;
+	private TemporalPriceList discount;
 	
-	public ShelfProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount) {
+	public ShelfProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount, LocalDateTime creationDate) {
 		super(name, descripton, barcode, purchasePrice);
-		this.price = price;
-		this.discount = discount;
+		this.price = new TemporalPriceList();
+		this.price.addPrice(price, creationDate);
+		this.discount = new TemporalPriceList();
+		this.discount.addPrice(discount, creationDate);
+		stocks = new ArrayList<>();
+	}
+	
+	public int getQuantity(Location location) {
+		int res = 0;
+		for(int i = 0; i < stocks.size(); i++) {
+			if(stocks.get(i).getAisle().getLocation().equals(location)) {
+				res += stocks.get(i).getQuantity();
+			}
+		}
+		return res;
 	}
 	
 	/**
@@ -27,7 +44,7 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 		return false;
 	}
 	
-	public double getPrice() {
-		return price * (1-discount);
+	public double getPrice(LocalDateTime date) {
+		return price.getPrice(date) * (1 - discount.getPrice(date));
 	}
 }

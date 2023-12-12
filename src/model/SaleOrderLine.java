@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDateTime;
+
 /**
  * contains a sellable product, and the quantity for the product. Should never
  * have a quantity more than 1 for unique products.
@@ -29,8 +31,8 @@ public class SaleOrderLine {
 	 * 
 	 * @return the price from product
 	 */
-	public double getPrice() {
-		return product.getPrice() * quantity;
+	public double getPrice(LocalDateTime date) {
+		return product.getPrice(date) * quantity;
 	}
 	
 	/**
