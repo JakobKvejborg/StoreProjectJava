@@ -14,8 +14,8 @@ public class TemporalPriceList {
 	public ArrayList<TemporalPrice> getPrices() {
 		return prices;
 	}
-	
+
 	public addPrice(double price, LocalDateTime date) {
-		
+
 	}
 }

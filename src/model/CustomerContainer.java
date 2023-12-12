@@ -61,5 +61,9 @@ public class CustomerContainer {
 		}
 		return res;
 	}
-	
+
+	public void createCustomer(String name, String address, String phone, String email) {
+		Customer customer1 = new Customer(name, address, phone, email);
+		addCustomer(customer1);
+	}
 }

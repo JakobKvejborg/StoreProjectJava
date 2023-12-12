@@ -28,5 +28,10 @@ public class CustomerCtrl {
 	 */
 	public Customer findCustomer(String phone) {
 		return customerContainer.findCustomer(phone);
-	}		
+	}
+
+	public void createCustomer(String name, String address, String phone, String email) {
+		customerContainer.createCustomer(name, address, phone, email);
+	}
+
 }
