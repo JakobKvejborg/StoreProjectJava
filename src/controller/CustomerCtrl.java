@@ -10,7 +10,7 @@ import model.CustomerContainer;
  * @version 0.1.0
  */
 
-public class CustomerCtrl {
+public class CustomerCtrl implements CustomerCtrlIF {
 	private CustomerContainer customerContainer;
 	
 	/**

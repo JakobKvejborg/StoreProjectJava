@@ -84,17 +84,7 @@ public class SaleTUI {
 		String newCustomerInput = textInput.readString();
 		Customer customer = null;
 		if (newCustomerText(newCustomerInput)) {
-			System.out.println("Enter customer details:");
-			System.out.print("Name: ");
-			String name = textInput.readString();
-			System.out.print("Address: ");
-			String address = textInput.readString();
-			System.out.print("Phone: ");
-			String phone = textInput.readString();
-			System.out.print("Email: ");
-			String email = textInput.readString();
-			customer = customerCtrl.createCustomer(name, address, phone, email);
-
+			customer = new CustomerTUI().createCustomer();
 		}
 		return customer;
 	}
@@ -194,6 +184,7 @@ public class SaleTUI {
 			System.out.print("total:\t");
 			System.out.println(sale.getPrice());
 			System.out.println("Customer attached to the sale: "); //TODO
+			
 
 		}
 	}
