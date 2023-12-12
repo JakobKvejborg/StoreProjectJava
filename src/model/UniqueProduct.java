@@ -6,19 +6,19 @@ package model;
  * @since 12-12-2023
  */
 public class UniqueProduct extends AbstractProduct {
-	private String warrenty;
+	private String defaultWarrenty;
 	private double price;
 	private double discount;
 	
-	public UniqueProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount, String warrenty) {
+	public UniqueProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount, String defaultWarrenty) {
 		super(name, descripton, barcode, purchasePrice);
-		this.warrenty = warrenty;
+		this.defaultWarrenty = defaultWarrenty;
 		this.price = price;
 		this.discount = discount;
 	}
 
-	public void setWarrenty(String warrenty) {
-		this.warrenty = warrenty;
+	public void setDefaultWarrenty(String warrenty) {
+		this.defaultWarrenty = defaultWarrenty;
 	}
 
 	public double getPrice() {

@@ -6,13 +6,18 @@ package model;
  * @since 12-12-2023
  */
 public class UniqueCopy extends AbstractProduct{
-	private String defaultWarrenty;
+	private String warrenty;
 	
 	
-	public UniqueCopy(String name, String descripton, String barcode, double purchasePrice) {
+	public UniqueCopy(String name, String descripton, String barcode, double purchasePrice, String warrenty) {
 		super(name, descripton, barcode, purchasePrice);
-		this.defaultWarrenty = defaultWarrenty;
+		this.warrenty = warrenty;
 	}
+
+	public void setWarrenty(String defaultWarrenty) {
+		this.warrenty = warrenty;
+	}
+	
 
 	public boolean isUnique() {
 		// TODO Auto-generated method stub
