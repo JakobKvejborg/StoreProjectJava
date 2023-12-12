@@ -30,6 +30,14 @@ public class CustomerCtrl {
 		return customerContainer.findCustomer(phone);
 	}
 
+	/**
+	 * This method is used to call a method from customer container.
+	 *
+	 * @param name
+	 * @param address
+	 * @param phone
+	 * @param email
+	 */
 	public void createCustomer(String name, String address, String phone, String email) {
 		customerContainer.createCustomer(name, address, phone, email);
 	}
