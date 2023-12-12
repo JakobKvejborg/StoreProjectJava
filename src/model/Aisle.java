@@ -9,4 +9,9 @@ public class Aisle {
 		this.placement = placement;
 		this.location = location;
 	}
+	
+	public Location getLocation() {
+		return location;
+	}
+
 }
