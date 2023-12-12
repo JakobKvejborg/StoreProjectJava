@@ -48,22 +48,22 @@ public class Sale extends AbstractOrder {
 	public double getPrice(){
 		double total = 0.0d;
 		for(int i = 0; i < saleOrderLines.size(); i++) {
-			total += saleOrderLines.get(i).getPrice();
+			total += saleOrderLines.get(i).getPrice(super.getDate());
 		}
 		double totalDiscount = craftmanDiscount + quantityDiscount + collectionDiscount;
 		double maxDiscount;
 		if(super.getCustomer() == null) {
-			maxDiscount = CustomerGroup.getDefaultCustomerGroup().getMaxDiscount();
+			maxDiscount = CustomerGroup.getDefaultCustomerGroup().getMaxDiscount(super.getDate());
 		}
 		else {
-			maxDiscount = super.getCustomer().getMaxDiscount();
+			maxDiscount = super.getCustomer().getMaxDiscount(super.getDate());
 		}
 		if(totalDiscount > maxDiscount) {
 			totalDiscount = maxDiscount;
 		}
 		return total * (1-totalDiscount);
 	}
-
+	
 	/**
 	 * @param index of the <code>SaleOrderLine</code>
 	 * @return The <code>SaleOrderLine</code>

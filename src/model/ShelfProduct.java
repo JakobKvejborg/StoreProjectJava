@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -41,7 +42,7 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 		return false;
 	}
 	
-	public double getPrice() {
+	public double getPrice(LocalDateTime date) {
 		return price * (1-discount);
 	}
 }

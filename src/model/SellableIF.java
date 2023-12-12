@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDateTime;
 
 /**
  * This interface should be implemented for anything that can be sold.
@@ -12,7 +13,7 @@ public interface SellableIF {
 	 * it gets the price of a product
 	 * @return price in double
 	 */
-	double getPrice();
+	double getPrice(LocalDateTime date);
 	/**
 	 * @return true if the Sellable is only allowed to sell in quantities of 1
 	 */
