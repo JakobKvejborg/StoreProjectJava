@@ -59,4 +59,9 @@ public class MockSaleCtrl implements SaleCtrlIF {
 		return sale;
 	}
 
+	@Override
+	public void createCustomer(String name, String address, String phone, String email) {
+
+	}
+
 }

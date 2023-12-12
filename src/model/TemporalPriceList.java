@@ -6,8 +6,8 @@ import java.util.ArrayList;
 /**
  * makes a list of prices and what time they got updated
  * @author Julia Rafn & Penrose
- * version 12/12/2023
- * since 12/12/2023
+ * @version 12/12/2023
+ * @since 12/12/2023
  */
 
 public class TemporalPriceList {
