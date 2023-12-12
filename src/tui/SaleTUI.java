@@ -7,6 +7,7 @@ import controller.SaleCtrl;
 import controller.SaleCtrlIF;
 import model.Customer;
 import model.Employee;
+import model.Location;
 import model.SellableIF;
 import model.Sale;
 import model.SaleOrderLine;
@@ -23,10 +24,12 @@ public class SaleTUI {
 
 	private SaleCtrlIF saleCtrl;
 	private Employee employee;
+	private Location location;
 	private TextInput textInput;
 
-	public SaleTUI(Employee employee) {
+	public SaleTUI(Employee employee, Location location) {
 		this.employee = employee;
+		this.location = location;
 		saleCtrl = new MockSaleCtrl(employee);
 		textInput = TextInput.getInstance();
 	}

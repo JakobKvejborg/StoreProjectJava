@@ -40,6 +40,10 @@ public abstract class AbstractOrder {
 		this.customer = customer;
 	}
 	
+	public Customer getCustomer() {
+		return customer;
+	}
+	
 	/**
      * Sets the employee attached to this order.
      *

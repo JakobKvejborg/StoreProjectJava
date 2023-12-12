@@ -11,18 +11,13 @@ public abstract class AbstractProduct {
 	private String descripton;
 	private String barcode;
 	private double purchasePrice;
-	//TODO: Make price not break old sales when it is changed.
-	private double price;
-	//TODO: Make discount not break old sales when it is changed.
-	private double discount;
 	
-	public AbstractProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount) {
+	
+	public AbstractProduct(String name, String descripton, String barcode, double purchasePrice) {
 		this.name = name;
 		this.descripton = descripton;
 		this.barcode = barcode;
 		this.purchasePrice = purchasePrice;
-		this.price = price;
-		this.discount = discount;
 	}
 	
 	public abstract boolean isUnique();
@@ -31,9 +26,6 @@ public abstract class AbstractProduct {
 		return name;
 	}
 	
-	public double getPrice() {
-		return price;
-	}
 
 	public String getBarcode() {
 		return barcode;
