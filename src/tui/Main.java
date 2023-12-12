@@ -1,6 +1,7 @@
 package tui;
 
 import model.Employee;
+import model.Location;
 
 
 /**
@@ -8,14 +9,15 @@ import model.Employee;
  * creates a dummy employee and starts the saleTUI with that employee.
  * 
  * @author Penrose
- * @version 08/12/2023
+ * @version 12/12/2023
  * @since 08/12/2023
  */
 public class Main {
 
 	public static void main(String[] args) {
 		Employee user = new Employee("ProjectGroup", "UCN", "11234567", "noreply@UCN.dk", "PG");
-		SaleTUI saleTui = new SaleTUI(user);
+		Location location = new Location("Hjem & Fix", "Pioner Alle 2");
+		SaleTUI saleTui = new SaleTUI(user, location);
 		
 		saleTui.start();
 	}

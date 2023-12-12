@@ -20,7 +20,7 @@ public class Customer extends AbstractPerson{
      */
 	public Customer(String name, String address, String phone, String email) {
 		super(name, address, phone, email);
-		// TODO Auto-generated constructor stub
+		customerGroup = CustomerGroup.getDefaultCustomerGroup();
 	}
 
 	
@@ -33,6 +33,9 @@ public class Customer extends AbstractPerson{
 		this.customerGroup = customerGroup;
 	}
 	
+	public CustomerGroup getCustomerGroup() {
+		return customerGroup;
+	}
 	
 	public void setPhone(String phone) {
 		super.setPhone(phone);
@@ -44,7 +47,7 @@ public class Customer extends AbstractPerson{
      * @return The maximum discount available for this customer.
      */
 	public double getMaxDiscount() {
-		return customerGroup.getMaxDiscount();
+		return getCustomerGroup().getMaxDiscount();
 		//TODO
 	}
 }

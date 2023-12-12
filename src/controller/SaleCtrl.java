@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import model.AbstractProduct;
 import model.Customer;
 import model.Employee;
+import model.Location;
 import model.OrderContainer;
 import model.Sale;
 import model.SaleOrderLine;
@@ -12,18 +13,23 @@ import model.SellableIF;
 
 /**
  * @author Jonas og Jakob
+ * 
+ * @version 12/12/2023
+ * @since 08/12/2023
  */
 //TODO: add null checks to everything
 public class SaleCtrl implements SaleCtrlIF {
 	
 	private Employee employee;
+	private Location location;
 	private OrderContainer orderContainer;
 	private ProductCtrl productCtrl;
 	private CustomerCtrl customerCtrl;
 	private Sale sale;
 	
-	public SaleCtrl(Employee employee) {
+	public SaleCtrl(Employee employee, Location location) {
 		this.employee = employee;
+		this.location = location;
 	}
 
 	/**
@@ -107,6 +113,7 @@ public class SaleCtrl implements SaleCtrlIF {
 	public Sale completeSale(double payment) {
 		// TODO make sure the sale has proper values
 		if(payment >= sale.getPrice()) {
+			sale.setEmployee(employee);
 			orderContainer.addOrder(sale);
 			return sale;
 		}

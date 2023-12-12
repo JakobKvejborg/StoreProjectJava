@@ -12,6 +12,7 @@ public class CustomerGroup {
 	private String name;
 	private String type;
 	private double maxDiscount;
+	private static CustomerGroup defaultCustomerGroup;
 	/**
 	 * creates a customer group
 	 * @param name			name of the group in string
@@ -30,6 +31,13 @@ public class CustomerGroup {
 	 */
 	public double getMaxDiscount() {
 		return maxDiscount;
+	}
+	public static CustomerGroup getDefaultCustomerGroup() {
+		if(defaultCustomerGroup == null) {
+			defaultCustomerGroup = new CustomerGroup("Default Group", "Default", 0.2d);
+		}
+		return defaultCustomerGroup;
+		
 	}
 	
 }

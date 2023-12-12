@@ -14,6 +14,7 @@ import model.Customer;
 import model.SaleOrderLine;
 import model.ShelfProduct;
 import model.Employee;
+import model.Location;
 
 /**
  * 
@@ -47,7 +48,8 @@ class SaleCtrlTest {
 	void setUp() throws Exception {
 		customer = new Customer("Bob", "Gadevej", "654789321", "John@hotmail.dk");
 		skovlProduct = new ShelfProduct("skovel", "den kan grave", "92864731", 15, 20, 0);
-		saleCtrl = new SaleCtrl(new Employee(null, null, null, null, null));
+		saleCtrl = new SaleCtrl(new Employee("ProjectGroup", "UCN", "11234567", "noreply@UCN.dk", "PG"),
+				new Location("Hjem & Fix", "Pioner Alle 2"));
 		
 	}
 
