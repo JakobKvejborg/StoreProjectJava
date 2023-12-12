@@ -61,18 +61,4 @@ public class CustomerContainer {
 		}
 		return res;
 	}
-
-	/**
-	 * Method to create a new customer with name etc.
-	 * Then adds the new customer to the <code>ArrayList</code> in the customer container.
-	 *
-	 * @param name
-	 * @param address
-	 * @param phone
-	 * @param email
-	 */
-	public void createCustomer(String name, String address, String phone, String email) {
-		Customer customer1 = new Customer(name, address, phone, email);
-		addCustomer(customer1);
-	}
 }

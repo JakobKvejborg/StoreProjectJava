@@ -59,7 +59,6 @@ public class SaleTUI {
 			String barcode = textInput.readString();
 			if (isQuitText(barcode)) {
 				allProductsAdded = true;
-				createNewCustomerUI();
 			} else {
 				SellableIF product = addProduct(barcode);
 				System.out.println("Input product barcode. If all products have been added, input next.");
@@ -80,9 +79,10 @@ public class SaleTUI {
 		
 	}
 
-	private void createNewCustomerUI() {
+	private Customer createNewCustomerUI() {
 		System.out.println("Press C to create new customer, or input next.");
 		String newCustomerInput = textInput.readString();
+		Customer customer = null;
 		if (newCustomerText(newCustomerInput)) {
 			System.out.println("Enter customer details:");
 			System.out.print("Name: ");
@@ -93,8 +93,9 @@ public class SaleTUI {
 			String phone = textInput.readString();
 			System.out.print("Email: ");
 			String email = textInput.readString();
-			customerCtrl.createCustomer(name, address, phone, email);
+			customer = customerCtrl.createCustomer(name, address, phone, email);
 		}
+		return customer;
 	}
 
 
@@ -132,22 +133,25 @@ public class SaleTUI {
 	 * @return The customer object set to the sale, or <code>null</code> if not found.
 	 */
 	private Customer setCustomer() {
-		Customer customer = null;
-		boolean success = false;
-		while (!success) {
-			System.out.println("Input customer phone number. If no customer, input \"next\".");
-			String phone = textInput.readString();
-			if (isQuitText(phone)) {
-				success = true;
-			} else {
-				customer = saleCtrl.setCustomer(phone);
-				if(customer != null) {
+		Customer customer = createNewCustomerUI();
+		if (customer == null) {
+			boolean success = false;
+			while (!success) {
+				System.out.println("Input customer phone number. If no customer, input \"next\".");
+				String phone = textInput.readString();
+				if (isQuitText(phone)) {
 					success = true;
 				} else {
-					System.out.println("Could not find the customer!");
+					customer = saleCtrl.setCustomer(phone);
+					if(customer != null) {
+						success = true;
+					} else {
+						System.out.println("Could not find the customer!");
+					}
 				}
 			}
 		}
+		
 		return customer;
 	}
 
