@@ -27,14 +27,14 @@ public class SaleTUI {
 	private Employee employee;
 	private Location location;
 	private TextInput textInput;
-	private CustomerCtrl customerCtrl;
+
 
 	public SaleTUI(Employee employee, Location location) {
 		this.employee = employee;
 		this.location = location;
 		saleCtrl = new MockSaleCtrl(employee);
 		textInput = TextInput.getInstance();
-		customerCtrl = new CustomerCtrl();
+
 	}
 
 	public void start() {
@@ -93,7 +93,7 @@ public class SaleTUI {
 			String phone = textInput.readString();
 			System.out.print("Email: ");
 			String email = textInput.readString();
-			customerCtrl.createCustomer(name, address, phone, email);
+			saleCtrl.createCustomer(name, address, phone, email);
 		}
 	}
 
