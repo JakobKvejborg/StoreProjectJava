@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDateTime;
 
 /**
- * gets a date and price
+ * contains a date and price
  * @author Julia Rafn
  * version 12/12/2023
  * since 12/12/2023
