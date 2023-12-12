@@ -119,4 +119,9 @@ public class SaleCtrl implements SaleCtrlIF {
 		}
 		return null;
 	}
+
+	@Override
+	public void createCustomer(String name, String address, String phone, String email) {
+
+	}
 }
