@@ -63,7 +63,7 @@ public class SaleTUI {
 			System.out.println("The sale could not be completed.");
 		}
 		else {
-			printSale(sale);
+			printSale(sale, payment);
 		}
 		
 	}
@@ -94,7 +94,13 @@ public class SaleTUI {
 			}
 		}
 	}
-	
+
+	/**
+	 * Sets a customer for the current sale based on the phone number input.
+	 * If no customer is found then try again or proceed without a customer.
+	 *
+	 * @return The customer object set to the sale, or <code>null</code> if not found.
+	 */
 	private Customer setCustomer() {
 		Customer customer = null;
 		boolean success = false;
@@ -113,37 +119,47 @@ public class SaleTUI {
 			}
 		}
 		return customer;
-		
-
 	}
-	
+
+	/**
+	 * Allows the user to input the amount of cash paid for the sale.
+	 *
+	 * @return The amount of cash paid by the user as a <code>double</code>.
+	 */
 	private double inputPayment() {
 		//TODO: make this accept payment by card and such, never happening in the time we have been alloted.
 		double payment = textInput.readDouble();
 		
 		return payment;
 	}
-	
-	private void printSale(Sale sale) {
+
+	/**
+	 * This method checks if the payment is greater than the total price.
+	 *
+	 * @param sale
+	 * @param payment
+	 */
+	private void printSale(Sale sale, double payment) {
 		//TODO: print the sale info.
-		if(sale == null) {
-			System.out.println("Sale could not be completed!");
+		if(sale == null || payment <= sale.getPrice()) {
+			System.out.println("Sale could not be completed.");
 		}
-		System.out.println("Sale completed!");
-		System.out.println("---------------");
-		for(int i = 0; i < sale.getSaleOrderLinesSize(); i++) {
-			SaleOrderLine saleOrderLine = sale.getSaleOrderLine(i);
-			System.out.print(saleOrderLine.getProduct().getName());
-			System.out.print("\t");
-			System.out.print(saleOrderLine.getProduct().getPrice());
-			System.out.print("\t x");
-			System.out.println(saleOrderLine.getQuantity());
+		if (sale.getPrice() <= payment) {
+			System.out.println("Sale completed!");
+			System.out.println("---------------");
+			for (int i = 0; i < sale.getSaleOrderLinesSize(); i++) {
+				SaleOrderLine saleOrderLine = sale.getSaleOrderLine(i);
+				System.out.print(saleOrderLine.getProduct().getName());
+				System.out.print("\t");
+				System.out.print(saleOrderLine.getProduct().getPrice());
+				System.out.print("\t x");
+				System.out.println(saleOrderLine.getQuantity());
+			}
+			System.out.println("---------------");
+			System.out.print("total:\t");
+			System.out.println(sale.getPrice());
+
 		}
-		System.out.println("---------------");
-		System.out.print("total:\t");
-		System.out.println(sale.getPrice());
-
-
 	}
 
 }
