@@ -2,6 +2,8 @@ package unitTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +26,7 @@ public class SaleTest {
 	@BeforeEach
 	public void setUp() {
 		sale = new Sale(1, null);
-		saleOrderLineTest = new SaleOrderLine(new ShelfProduct("Oakwood planks", "Plank space", "087543", 9.99, 19.99, 10), 1);
+		saleOrderLineTest = new SaleOrderLine(new ShelfProduct("Oakwood planks", "Plank space", "087543", 9.99, 19.99, 10,LocalDateTime.of(2023, 1, 1, 1, 1)), 1);
 		sale.addSaleOrderLine(saleOrderLineTest);
 	}
 	

@@ -2,6 +2,8 @@ package unitTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +28,7 @@ public class ProductContainerTest {
 	
 	@Test
 	public void addProductTest() {
-		assertTrue(ProductContainer.getInstance().addProduct(new ShelfProduct("Bucket", "Lava certified", "873289", 19.99, 29.99, 50)));
+		assertTrue(ProductContainer.getInstance().addProduct(new ShelfProduct("Bucket", "Lava certified", "873289", 19.99, 29.99, 50,LocalDateTime.of(2023, 1, 1, 1, 1))));
 	}
 	
 	/**
@@ -35,7 +37,7 @@ public class ProductContainerTest {
 	 */
 	@Test
 	public void findProductTest() {
-		ShelfProduct shelfProduct = new ShelfProduct("Door hinges", "Door certified", "294829", 15.99, 25.99, 30);
+		ShelfProduct shelfProduct = new ShelfProduct("Door hinges", "Door certified", "294829", 15.99, 25.99, 30,LocalDateTime.of(2023, 1, 1, 1, 1));
 		productContainer.addProduct(shelfProduct);
 		assertEquals(productContainer.findProduct("294829"), shelfProduct);
 	}

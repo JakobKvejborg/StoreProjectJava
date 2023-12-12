@@ -14,14 +14,16 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 	
 	private ArrayList<ShelfStock> stocks;	
 	//TODO: Make price not break old sales when it is changed.
-	private double price;
+	private TemporalPriceList price;
 	//TODO: Make discount not break old sales when it is changed.
-	private double discount;
+	private TemporalPriceList discount;
 	
-	public ShelfProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount) {
+	public ShelfProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount, LocalDateTime creationDate) {
 		super(name, descripton, barcode, purchasePrice);
-		this.price = price;
-		this.discount = discount;
+		this.price = new TemporalPriceList();
+		this.price.addPrice(price, creationDate);
+		this.discount = new TemporalPriceList();
+		this.discount.addPrice(discount, creationDate);
 		stocks = new ArrayList<>();
 	}
 	
@@ -43,6 +45,6 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 	}
 	
 	public double getPrice(LocalDateTime date) {
-		return price * (1-discount);
+		return price.getPrice(date) * (1 - discount.getPrice(date));
 	}
 }

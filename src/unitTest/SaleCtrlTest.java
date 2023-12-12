@@ -2,6 +2,8 @@ package unitTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -47,7 +49,7 @@ class SaleCtrlTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		customer = new Customer("Bob", "Gadevej", "654789321", "John@hotmail.dk");
-		skovlProduct = new ShelfProduct("skovel", "den kan grave", "92864731", 15, 20, 0);
+		skovlProduct = new ShelfProduct("skovel", "den kan grave", "92864731", 15, 20, 0,LocalDateTime.of(2023, 1, 1, 1, 1));
 		saleCtrl = new SaleCtrl(new Employee("ProjectGroup", "UCN", "11234567", "noreply@UCN.dk", "PG"),
 				new Location("Hjem & Fix", "Pioner Alle 2"));
 		

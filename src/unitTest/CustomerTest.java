@@ -1,5 +1,7 @@
 package unitTest;
 
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,24 +27,24 @@ public class CustomerTest {
 	public void setUp() {
 		customer = new Customer("John Doe","Gade 1","1234567890","john@example.dk");		
 		
-	groupWithDiscount = new CustomerGroup("default group", "private", 20);
+	groupWithDiscount = new CustomerGroup("default group", "private", 20, LocalDateTime.of(2023, 1, 1, 1, 1));
 	
 	
-	groupWithoutDiscount = new CustomerGroup("default group number two", "public", 10);
+	groupWithoutDiscount = new CustomerGroup("default group number two", "public", 10, LocalDateTime.of(2023, 1, 1, 1, 1));
 	
 	}
 	
 	@Test
 	public void testGetMaxDiscountWithDiscount() {
 		customer.setCustomerGroup(groupWithDiscount);
-		double maxDiscount = customer.getMaxDiscount();
+		double maxDiscount = customer.getMaxDiscount(null);
 		Assertions.assertEquals(15,maxDiscount);	
 	}
 	
 	@Test
 	public void testGetMaxDiscountWithoutDiscount() {
 		customer.setCustomerGroup(groupWithoutDiscount);
-		double maxDiscount = customer.getMaxDiscount()	;
+		double maxDiscount = customer.getMaxDiscount(null)	;
 		Assertions.assertEquals(0,maxDiscount);	
 		}
 }

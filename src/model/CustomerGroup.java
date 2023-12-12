@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class CustomerGroup {
 	private String name;
 	private String type;
-	private double maxDiscount;
+	private TemporalPriceList maxDiscount;
 	private static CustomerGroup defaultCustomerGroup;
 	/**
 	 * creates a customer group
@@ -20,10 +20,11 @@ public class CustomerGroup {
 	 * @param type			represents the type of group in string
 	 * @param maxDiscount	the maximum amount of discount represented in double
 	 */
-	public CustomerGroup(String name, String type, double maxDiscount) {
+	public CustomerGroup(String name, String type, double maxDiscount, LocalDateTime date) {
 		this.name = name;
 		this.type = type;
-		this.maxDiscount = maxDiscount;
+		this.maxDiscount = new TemporalPriceList();
+		this.maxDiscount.addPrice(maxDiscount, date);
 	}
 	/**
 	 * 
@@ -31,11 +32,11 @@ public class CustomerGroup {
 	 * 0.2 = 20%
 	 */
 	public double getMaxDiscount(LocalDateTime date) {
-		return maxDiscount;
+		return maxDiscount.getPrice(date);
 	}
 	public static CustomerGroup getDefaultCustomerGroup() {
 		if(defaultCustomerGroup == null) {
-			defaultCustomerGroup = new CustomerGroup("Default Group", "Default", 0.2d);
+			defaultCustomerGroup = new CustomerGroup("Default Group", "Default", 0.2d, LocalDateTime.of(2020, 1,1,1,1));
 		}
 		return defaultCustomerGroup;
 		
