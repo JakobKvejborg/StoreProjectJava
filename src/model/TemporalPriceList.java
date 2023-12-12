@@ -9,8 +9,13 @@ import java.util.ArrayList;
  */
 
 public class TemporalPriceList {
-
 	private ArrayList<TemporalPrice> prices;
+
+	public ArrayList<TemporalPrice> getPrices() {
+		return prices;
+	}
 	
-	
+	public addPrice(double price, LocalDateTime date) {
+		
+	}
 }

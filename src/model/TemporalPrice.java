@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDateTime;
+
 /**
  * @author Julia Rafn
  * version 12/12/2023
@@ -7,5 +9,17 @@ package model;
  */
 
 public class TemporalPrice {
+	private LocalDateTime date;
+	private double price;
+	
+	
+	public LocalDateTime getDate() {
+		return date;
+	}
+	public double getPrice() {
+		return price;
+	}
+	
+	
 
 }
