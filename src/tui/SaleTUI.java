@@ -42,7 +42,7 @@ public class SaleTUI {
 
 	private void createSale() {
 		Sale sale = saleCtrl.makeSale();
-		
+
 		boolean allProductsAdded = false;
 		System.out.println("Input product barcode. If all products have been added, input next.");
 		while (!allProductsAdded) {
@@ -56,6 +56,7 @@ public class SaleTUI {
 		}
 		Customer customer = setCustomer();
 		System.out.println("total price of sale:" + sale.getPrice());
+		System.out.println("Betaling i kr: ");
 		double payment = inputPayment();
 		sale = saleCtrl.completeSale(payment);
 		if(sale == null) {
