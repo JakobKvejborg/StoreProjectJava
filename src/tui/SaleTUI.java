@@ -2,6 +2,7 @@ package tui;
 
 import java.util.Scanner;
 
+import controller.CustomerCtrl;
 import controller.MockSaleCtrl;
 import controller.SaleCtrl;
 import controller.SaleCtrlIF;
@@ -26,12 +27,14 @@ public class SaleTUI {
 	private Employee employee;
 	private Location location;
 	private TextInput textInput;
+	private CustomerCtrl customerCtrl;
 
 	public SaleTUI(Employee employee, Location location) {
 		this.employee = employee;
 		this.location = location;
 		saleCtrl = new MockSaleCtrl(employee);
 		textInput = TextInput.getInstance();
+		customerCtrl = new CustomerCtrl();
 	}
 
 	public void start() {
@@ -43,6 +46,10 @@ public class SaleTUI {
 				|| text.equalsIgnoreCase("done");
 	}
 
+	private boolean newCustomerText(String text) {
+		return text.equalsIgnoreCase("c");
+	}
+
 	private void createSale() {
 		Sale sale = saleCtrl.makeSale();
 
@@ -52,14 +59,16 @@ public class SaleTUI {
 			String barcode = textInput.readString();
 			if (isQuitText(barcode)) {
 				allProductsAdded = true;
+				createNewCustomerUI();
 			} else {
 				SellableIF product = addProduct(barcode);
 				System.out.println("Input product barcode. If all products have been added, input next.");
 			}
+
 		}
 		Customer customer = setCustomer();
 		System.out.println("total price of sale:" + sale.getPrice());
-		System.out.println("Betaling i kr: ");
+		System.out.println("Payment in DKK: ");
 		double payment = inputPayment();
 		sale = saleCtrl.completeSale(payment);
 		if(sale == null) {
@@ -70,11 +79,29 @@ public class SaleTUI {
 		}
 		
 	}
-	
+
+	private void createNewCustomerUI() {
+		System.out.println("Press C to create new customer, or input next.");
+		String newCustomerInput = textInput.readString();
+		if (newCustomerText(newCustomerInput)) {
+			System.out.println("Enter customer details:");
+			System.out.print("Name: ");
+			String name = textInput.readString();
+			System.out.print("Address: ");
+			String address = textInput.readString();
+			System.out.print("Phone: ");
+			String phone = textInput.readString();
+			System.out.print("Email: ");
+			String email = textInput.readString();
+			customerCtrl.createCustomer(name, address, phone, email);
+		}
+	}
+
+
 	private SellableIF addProduct(String barcode) {
 		SellableIF product = saleCtrl.addProduct(barcode);
 		if (product == null) {
-			System.out.println("could not read barcode, or product could not be sold, try again");
+			System.out.println("Could not read barcode, or product could not be sold, try again.");
 		} else {
 			if (!product.isUnique()) {
 				setQuantity();
@@ -90,10 +117,10 @@ public class SaleTUI {
 			int quantity = textInput.readInt();
 			quantitySuccess = saleCtrl.setQuantity(quantity);
 			if (!quantitySuccess) {
-				System.out.println("could not set the quantity to: " + quantity);
+				System.out.println("Could not set the quantity to: " + quantity);
 			}
 			else {
-				System.out.println("quantity set successfully");
+				System.out.println("Quantity set successfully.");
 			}
 		}
 	}
@@ -108,7 +135,7 @@ public class SaleTUI {
 		Customer customer = null;
 		boolean success = false;
 		while (!success) {
-			System.out.println("input customer phone number. If no customer, input \"next\".");
+			System.out.println("Input customer phone number. If no customer, input \"next\".");
 			String phone = textInput.readString();
 			if (isQuitText(phone)) {
 				success = true;
@@ -144,7 +171,7 @@ public class SaleTUI {
 	 */
 	private void printSale(Sale sale, double payment) {
 		//TODO: print the sale info.
-		if(sale == null || payment <= sale.getPrice()) {
+		if(sale == null || sale.getPrice() > payment) {
 			System.out.println("Sale could not be completed.");
 		}
 		if (sale.getPrice() <= payment) {
@@ -161,6 +188,7 @@ public class SaleTUI {
 			System.out.println("---------------");
 			System.out.print("total:\t");
 			System.out.println(sale.getPrice());
+			System.out.println("Customer attached to the sale: "); //TODO
 
 		}
 	}

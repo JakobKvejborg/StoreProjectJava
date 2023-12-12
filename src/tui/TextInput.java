@@ -28,7 +28,7 @@ public class TextInput {
 	
 	public int readInt() {
 		while(!scanner.hasNextInt()) {
-			System.out.println("input må kun være et helt tal, prøv igen.");
+			System.out.println("Input can only be a number, try again.");
 			scanner.nextLine();
 		}
 		int res = scanner.nextInt();
@@ -38,7 +38,7 @@ public class TextInput {
 	
 	public double readDouble() {
 		while(!scanner.hasNextDouble()) {
-			System.out.println("input må kun være et tal, prøv igen.");
+			System.out.println("Input can only be a number, try again.");
 			scanner.nextLine();
 		}
 		double res = scanner.nextDouble();
