@@ -28,7 +28,8 @@ public class ProductContainerTest {
 	
 	@Test
 	public void addProductTest() {
-		assertTrue(ProductContainer.getInstance().addProduct(new ShelfProduct("Bucket", "Lava certified", "873289", 19.99, 29.99, 50,LocalDateTime.of(2023, 1, 1, 1, 1))));
+		assertTrue(ProductContainer.getInstance().addProduct(
+				new ShelfProduct("Bucket", "Lava certified", "87327689", 19.99, 29.99, 50, LocalDateTime.of(2023, 1, 1, 1, 1))));
 	}
 	
 	/**

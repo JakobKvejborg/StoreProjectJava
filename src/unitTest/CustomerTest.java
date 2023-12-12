@@ -27,24 +27,24 @@ public class CustomerTest {
 	public void setUp() {
 		customer = new Customer("John Doe","Gade 1","1234567890","john@example.dk");		
 		
-	groupWithDiscount = new CustomerGroup("default group", "private", 20, LocalDateTime.of(2023, 1, 1, 1, 1));
+	groupWithDiscount = new CustomerGroup("default group", "private", 15, LocalDateTime.of(2023, 1, 1, 1, 1));
 	
 	
-	groupWithoutDiscount = new CustomerGroup("default group number two", "public", 10, LocalDateTime.of(2023, 1, 1, 1, 1));
+	groupWithoutDiscount = new CustomerGroup("default group number two", "public", 0, LocalDateTime.of(2023, 1, 1, 1, 1));
 	
 	}
 	
 	@Test
 	public void testGetMaxDiscountWithDiscount() {
 		customer.setCustomerGroup(groupWithDiscount);
-		double maxDiscount = customer.getMaxDiscount(null);
+		double maxDiscount = customer.getMaxDiscount(LocalDateTime.of(2023, 1, 1, 1, 1));
 		Assertions.assertEquals(15,maxDiscount);	
 	}
 	
 	@Test
 	public void testGetMaxDiscountWithoutDiscount() {
 		customer.setCustomerGroup(groupWithoutDiscount);
-		double maxDiscount = customer.getMaxDiscount(null)	;
+		double maxDiscount = customer.getMaxDiscount(LocalDateTime.of(2023, 1, 1, 1, 1));
 		Assertions.assertEquals(0,maxDiscount);	
 		}
 }

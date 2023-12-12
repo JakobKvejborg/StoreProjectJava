@@ -26,14 +26,14 @@ public class SaleOrderLineTest {
 
 	@BeforeEach
 	public void setUp() {
-		product = new ShelfProduct("Hammer", "Used to hit nails", "0666", 20.50, 50.0, 0.10,LocalDateTime.of(2023, 1, 1, 1, 1));
+		product = new ShelfProduct("Hammer", "Used to hit nails", "0666", 20.50, 50.0, 0,LocalDateTime.of(2023, 1, 1,1, 1));
 		saleOrderLine = new SaleOrderLine(product, 1);
 	}
 
 	@Test
 	public void testGetPrice() {
 		double expectedPrice = 50.0;
-		double actualPrice = saleOrderLine.getPrice(LocalDateTime.of(2023, 1, 1, 1, 1));
-		Assertions.assertEquals(expectedPrice, actualPrice, 0.10);
+		double actualPrice = saleOrderLine.getPrice(LocalDateTime.of(2023, 1, 1,1, 1));
+		Assertions.assertEquals(expectedPrice, actualPrice);
 	}
 }

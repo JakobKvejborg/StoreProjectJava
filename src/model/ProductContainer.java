@@ -11,8 +11,8 @@ public class ProductContainer {
 	private static ProductContainer instance;
 	private ArrayList<AbstractProduct> products;
 	
-	public ProductContainer() {
-	ArrayList<AbstractProduct> products = new ArrayList<>();
+	private ProductContainer() {
+		products = new ArrayList<>();
 	}
 	
 	public static ProductContainer getInstance() {
@@ -47,7 +47,6 @@ public class ProductContainer {
 	 * @param product		represents a product
 	 * @return true if the product has been added to the list
 	 */
-	//TODO make sure barcode is Unique
 	public boolean addProduct(AbstractProduct product) {
 		boolean res = false;
 		if(findProduct(product.getBarcode()) == null) {
