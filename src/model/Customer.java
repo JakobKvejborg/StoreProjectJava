@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDateTime;
 
 /**
  * @author Jonas
@@ -46,8 +47,8 @@ public class Customer extends AbstractPerson{
      *
      * @return The maximum discount available for this customer.
      */
-	public double getMaxDiscount() {
-		return getCustomerGroup().getMaxDiscount();
+	public double getMaxDiscount(LocalDateTime date) {
+		return getCustomerGroup().getMaxDiscount(date);
 		//TODO
 	}
 }

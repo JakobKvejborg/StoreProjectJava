@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDateTime;
 
 /**
  * creates a a customer group and manages its maximum discount
@@ -29,7 +30,7 @@ public class CustomerGroup {
 	 * @return a double representing the maximum discount a costumer group can get
 	 * 0.2 = 20%
 	 */
-	public double getMaxDiscount() {
+	public double getMaxDiscount(LocalDateTime date) {
 		return maxDiscount;
 	}
 	public static CustomerGroup getDefaultCustomerGroup() {

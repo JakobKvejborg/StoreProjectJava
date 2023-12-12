@@ -30,7 +30,7 @@ public class SaleTest {
 	
 	@Test
 	public void GetPriceTest() {
-		double expectedPrice = saleOrderLineTest.getQuantity() * saleOrderLineTest.getProduct().getPrice();
+		double expectedPrice = saleOrderLineTest.getQuantity() * saleOrderLineTest.getProduct().getPrice(null);
 		double actualPrice = sale.getPrice();
 		assertEquals(expectedPrice, actualPrice, 0.01);
 	}
