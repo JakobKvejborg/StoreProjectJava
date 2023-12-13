@@ -52,7 +52,7 @@ public class SaleTUI {
 
 	private void createSale() {
 		Sale sale = saleCtrl.makeSale();
-
+	
 		boolean allProductsAdded = false;
 		System.out.println("Input product barcode. If all products have been added, input next.");
 		while (!allProductsAdded) {
@@ -60,7 +60,9 @@ public class SaleTUI {
 			if (isQuitText(barcode)) {
 				allProductsAdded = true;
 			} else {
+				System.out.println("Product added: Desk"); //TODO
 				SellableIF product = addProduct(barcode);
+				
 				System.out.println("Input product barcode. If all products have been added, input next.");
 			}
 

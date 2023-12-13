@@ -24,6 +24,7 @@ public class CustomerTUI {
 		String phone = textInput.readString();
 		System.out.print("Email: ");
 		String email = textInput.readString();
+		System.out.println(name + "\n" + address + "\n" + phone + "\n" + email + "\n");
 		return customerCtrl.createCustomer(name, address, phone, email);
 	}
 
