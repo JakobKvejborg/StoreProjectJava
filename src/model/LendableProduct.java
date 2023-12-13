@@ -1,5 +1,12 @@
 package model;
 
+
+/**
+ * @author Jakob & Jonas
+ * 
+ * @version 13-12-2023
+ * @since 13-12-2023
+ */
 public class LendableProduct extends AbstractProduct{
 	private double lendPrice;
 	private double lendDiscount;

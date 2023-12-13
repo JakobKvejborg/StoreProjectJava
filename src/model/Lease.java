@@ -7,14 +7,14 @@ import java.time.LocalDateTime;
  * @version 13-12-2023
  * @since 13-12-2023
  */
-public class Lease extends AbstractProduct {
+public class Lease extends AbstractOrder {
 	private double totalPaid;
 	private LocalDateTime paymentDue;
 	private String state;
 	
 	
-	public Lease(String name, String descripton, String barcode, double purchasePrice, double totalPaid, LocalDateTime paymentDue, String state) {
-		super(name, descripton, barcode, purchasePrice);
+	public Lease(int orderNo, LocalDateTime date, double totalPaid, LocalDateTime paymentDue, String state) {
+		super(orderNo, date);
 		this.totalPaid = totalPaid;
 		this.paymentDue = paymentDue;
 		this.state = state;
