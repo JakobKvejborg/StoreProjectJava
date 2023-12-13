@@ -11,11 +11,13 @@ import model.ShelfProduct;
 import model.ProductContainer;
 
 /**
+ * This class represents a J-Unit test for the class <code>ProductContainer</class>.
+ * 
  * @author Patrick Thor Sorenson De Siqueira
- * @version 0.1.0
+ * @version 13/12/2023
+ * @since 08/12/2023
  */
 public class ProductContainerTest {
-
 	private ProductContainer productContainer;
 	
 	/**
@@ -26,6 +28,9 @@ public class ProductContainerTest {
 		productContainer = ProductContainer.getInstance();
 	}
 	
+	/**
+	 * This test checks if <code>addProduct</code> from the <code>ProductContainer</code> succeeds by adding new <code>ShelfProduct</code>.
+	 */
 	@Test
 	public void addProductTest() {
 		assertTrue(ProductContainer.getInstance().addProduct(

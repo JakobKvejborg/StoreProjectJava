@@ -4,24 +4,25 @@ import java.util.ArrayList;
 
 /**
  * This class represents a customer container which can store and search for
- * the class Customer
+ * the class <code>Customer</code>.
+ * 
  * @author Patrick Thor Sorenson De Siqueira, Majbritt Kjeldgaard Harsfort
- * @version 0.1.0
+ * @version 13/12/2023
+ * @since 07/12/2023
  */
-
 public class CustomerContainer {
 	private ArrayList<Customer> customers;
 	private static CustomerContainer instance;
 	
 	/**
-	 * Constructor creates a list containing customers
+	 * Constructor creates a list containing <code>customers</code>.
 	 */
 	private CustomerContainer() {
 		customers = new ArrayList<>();
 	}
 	
 	/**
-	 * This method creates a instance of CustomerContainer if it does no exist (singleton)
+	 * This method creates a instance of CustomerContainer if it does no exist (singleton).
 	 * 
 	 * @return instance
 	 */
@@ -34,7 +35,7 @@ public class CustomerContainer {
 	
 	/**
 	 * This method is used to search for a customer inside the array list
-	 * by using customers phone number
+	 * by using customers phone number.
 	 * 
 	 * @param phone phone number of customer
 	 * @return object customer
@@ -49,7 +50,7 @@ public class CustomerContainer {
 	}
 	
 	/**
-	 * This method adds a customer to the ArrayList
+	 * This method adds a customer to the ArrayList.
 	 * @param customer is an object from the class Customer
 	 * @return <code>true</code> or <code>false</code>
 	 */

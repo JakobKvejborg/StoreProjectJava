@@ -12,17 +12,19 @@ import model.Sale;
 import model.ShelfProduct;
 
 /**
- * This class represents a test of Sale.
+ * This class represents a J-Unit test for the class <code>Sale</class>.
  * 
  * @author Patrick Thor Sorenson De Siqueira
- * 
  * @version 11/12/2023
- * @since 11/12/2023
+ * @since 13/12/2023
  */
 public class SaleTest {
 	private Sale sale;
 	private SaleOrderLine saleOrderLineTest;
 	
+	/**
+	 * <code>setUp()</code> runs before each test method.
+	 */
 	@BeforeEach
 	public void setUp() {
 		sale = new Sale(1, LocalDateTime.of(2023, 1, 1, 1, 1));
@@ -30,6 +32,9 @@ public class SaleTest {
 		sale.addSaleOrderLine(saleOrderLineTest);
 	}
 	
+	/**
+	 * This test multiplies Quantity with Product Price and then compares it with output of <code>sale.getPrice()</code> to make sure they Equal the same.
+	 */
 	@Test
 	public void GetPriceTest() {
 		double expectedPrice = saleOrderLineTest.getQuantity() * saleOrderLineTest.getProduct().getPrice(LocalDateTime.of(2023, 1, 1, 1, 1));
