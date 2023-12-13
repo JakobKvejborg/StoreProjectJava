@@ -10,11 +10,12 @@ import model.Customer;
 import model.CustomerGroup;
 
 /**
- * This class represents a test of Customer
+ * This class represents a J-Unit test for the class <code>Customer</class>.
+ * 
  * @author Majbritt Kjeldgaard Harsfort
- * @version 11/12/2023
+ * @version 13/12/2023
+ * @since 11/12/2023
  */
-
 public class CustomerTest {
 	private Customer customer;
 	private CustomerGroup groupWithDiscount;
@@ -29,11 +30,13 @@ public class CustomerTest {
 		
 	groupWithDiscount = new CustomerGroup("default group", "private", 15, LocalDateTime.of(2023, 1, 1, 1, 1));
 	
-	
 	groupWithoutDiscount = new CustomerGroup("default group number two", "public", 0, LocalDateTime.of(2023, 1, 1, 1, 1));
 	
 	}
 	
+	/**
+	 * This test checks to see if <code>groupWithDiscount</code> shares the <code>double</code> attribute <code>MaxDiscount</code> with <code>maxDiscount</code>.
+	 */
 	@Test
 	public void testGetMaxDiscountWithDiscount() {
 		customer.setCustomerGroup(groupWithDiscount);
@@ -41,6 +44,9 @@ public class CustomerTest {
 		Assertions.assertEquals(15,maxDiscount);	
 	}
 	
+	/**
+	 * This test checks to see if <code>groupWithoutDiscount</code> shares the <code>double</code> attribute <code>MaxDiscount</code> with <code>maxDiscount</code>.
+	 */
 	@Test
 	public void testGetMaxDiscountWithoutDiscount() {
 		customer.setCustomerGroup(groupWithoutDiscount);
