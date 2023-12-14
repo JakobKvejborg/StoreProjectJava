@@ -185,8 +185,13 @@ public class SaleTUI {
 			System.out.println("---------------");
 			System.out.print("total:\t");
 			System.out.println(sale.getPrice());
-			System.out.println("Customer attached to the sale: "); //TODO
-			
+			if(sale.getCustomer() != null) {
+				System.out.println("Customer attached to the sale: "); 
+				//TODO print customer information
+			}
+			else {
+				System.out.println("No customer attached to the sale.");
+			}
 
 		}
 	}

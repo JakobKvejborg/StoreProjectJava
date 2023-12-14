@@ -26,6 +26,7 @@ public class CustomerTUI {
 		String email = textInput.readString();
 		System.out.println(name + "\n" + address + "\n" + phone + "\n" + email + "\n");
 		return customerCtrl.createCustomer(name, address, phone, email);
+		//TODO: do something when a customer cannot be created because the phone number already exists in the database.
 	}
 
 }
