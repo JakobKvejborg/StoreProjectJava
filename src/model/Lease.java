@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Jakob & Jonas
  * 
  * @version 13-12-2023
- * @since 13-12-2023
+ * @since 14-12-2023
  */
 public class Lease extends AbstractProduct {
 	private double totalPaid;
@@ -47,5 +47,5 @@ public class Lease extends AbstractProduct {
 	public void addSaleOrderLine(SaleOrderLine saleOrderLine) {
 		saleOrderLines.add(saleOrderLine);
 	}
-	
+	 
 }
