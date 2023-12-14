@@ -3,6 +3,12 @@ package model;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * @author Jakob & Jonas
+ * 
+ * @version 13-12-2023
+ * @since 13-12-2023
+ */
 public class LeaseContainer {
 	private ArrayList<Lease> leases;
 	private static LeaseContainer instance;
