@@ -3,6 +3,13 @@ package tui;
 import model.Employee;
 import model.Location;
 
+/**
+ * Main menu for accessing the different sub-menus
+ * 
+ * @author Penrose
+ * @version 14/12/2023
+ * @since 14/12/2023
+ */
 public class MainMenuTUI {
 
 	private Employee employee;
@@ -29,6 +36,10 @@ public class MainMenuTUI {
 			case 2:
 				new CustomerTUI().start();
 				break;
+			case 3:
+				//should not make it to the final build.
+				//TODO: Generate Test data
+				break;
 			default:
 				System.out.println("Please enter a valid number!");
 
@@ -41,6 +52,9 @@ public class MainMenuTUI {
 		System.out.println("0: quit.");
 		System.out.println("1: Sale Menu.");
 		System.out.println("2: Customer Menu.");
+		//should not make it to the final build.
+		System.out.println("3: Generate Test Data.");
+
 		return textInput.readInt();
 	}
 

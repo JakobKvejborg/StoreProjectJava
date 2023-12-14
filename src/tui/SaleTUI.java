@@ -81,7 +81,7 @@ public class SaleTUI {
 		
 	}
 
-	private Customer createNewCustomerUI() {
+	private Customer createNewCustomer() {
 		System.out.println("Press C to create new customer, or input next.");
 		String newCustomerInput = textInput.readString();
 		Customer customer = null;
@@ -126,8 +126,11 @@ public class SaleTUI {
 	 * @return The customer object set to the sale, or <code>null</code> if not found.
 	 */
 	private Customer setCustomer() {
-		Customer customer = createNewCustomerUI();
-		if (customer == null) {
+		Customer customer = createNewCustomer();
+		if (customer != null){
+			//could add a function where a customer is added directly, instead of being found. Would be more efficient.
+			customer = saleCtrl.setCustomer(customer.getPhone());
+		} else {
 			boolean success = false;
 			while (!success) {
 				System.out.println("Input customer phone number. If no customer, input \"next\".");
@@ -186,7 +189,12 @@ public class SaleTUI {
 			System.out.print("total:\t");
 			System.out.println(sale.getPrice());
 			if(sale.getCustomer() != null) {
-				System.out.println("Customer attached to the sale: "); 
+				System.out.println("Customer attached to the sale: ");
+				System.out.println("Name: " + sale.getCustomer().getName());
+				System.out.println("Phone: " + sale.getCustomer().getPhone());
+				System.out.println("Address: " + sale.getCustomer().getAddress());
+				System.out.println("Email: " + sale.getCustomer().getEmail());
+
 				//TODO print customer information
 			}
 			else {
