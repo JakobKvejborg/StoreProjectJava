@@ -1,10 +1,9 @@
 package controller;
 
-import model.AbstractProduct;
-import model.Lease;
-import model.LeaseContainer;
-import model.LendableIF;
-import model.SaleOrderLine;
+import model.*;
+
+import java.time.LocalDateTime;
+
 /**
  * @author Jakob & Jonas
  * 
@@ -22,6 +21,22 @@ public class LeaseCtrl {
 	
 	public AbstractProduct findProduct(String barcode) {
 		return productCtrl.findProduct(barcode);
+	}
+
+	public Lease makeLease() {
+		//TODO Assign proper lease
+		lease = new Lease("Jakob", "Værktøj", "1", 200, 200, LocalDateTime.now(), "1");
+		return lease;
+	}
+
+	public Lease completeLease(double payment) {
+		// TODO make sure the sale has proper values
+		if(payment >= lease.getTotalPaid()) {
+//			lease.setEmployee(employee); // TODO
+			leaseContainer.addProduct(lease);
+			return lease;
+		}
+		return null;
 	}
 
 	public LendableIF addTools(String barcode) {
