@@ -13,6 +13,10 @@ public class CustomerTUI {
 		customerCtrl = new CustomerCtrl();
 		textInput = TextInput.getInstance();
 	}
+	
+	public void start() {
+		createCustomer();
+	}
 
 	public Customer createCustomer() {
 		System.out.println("Enter customer details:");
