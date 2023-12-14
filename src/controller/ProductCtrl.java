@@ -10,7 +10,7 @@ public class ProductCtrl {
 	private ProductContainer productContainer;
 
 	public ProductCtrl() {
-	
+		this.productContainer = ProductContainer.getInstance();
 	}
 	
 	public AbstractProduct findProduct(String barcode) {

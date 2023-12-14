@@ -25,13 +25,17 @@ public class TemporalPriceList {
 	/**
 	 * gets a price 
 	 * @param date
-	 * @return 
+	 * @return the price 
 	 */
 	public double getPrice(LocalDateTime date) {
 		double res = 0.0d;
-		for(int i = prices.size()-1; i >= 0; i--) {
-			if(prices.get(i).getDate().compareTo(date)>=0) {
+		boolean found = false;
+		//a backwards loop
+		for(int i = prices.size()-1; i >= 0 && !found; i--) {
+			//check whether the date is before or after the date being looked up
+			if(prices.get(i).getDate().compareTo(date)<=0) {
 				res = prices.get(i).getPrice();
+				found = true;
 			}
 		}
 		return res;
