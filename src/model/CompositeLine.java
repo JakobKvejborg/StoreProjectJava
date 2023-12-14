@@ -1,15 +1,17 @@
 package model;
 /**
- * Gives the composite product a quantity
+ * Gives the products inside CompositeProduct quantities
  * @author Julia Rafn
  * @version 14/12/2023
  * @since 14/12/2023 
  */
 public class CompositeLine {
-	private int quantity;
+	private int quantity;	
+	private AbstractProduct product;
 
-	public CompositeLine(int quantity) {
+	public CompositeLine(int quantity, AbstractProduct product) {
 		this.quantity = quantity;
+		this.product = product;
 	}
 
 	public int getQuantity() {

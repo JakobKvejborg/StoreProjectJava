@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  * Creates a composite product which contains multiple different and similar products,
@@ -12,8 +13,10 @@ import java.time.LocalDateTime;
 public class CompositeProduct {
 	private double price;
 	private double discount;
+	private ArrayList<CompositeLine> compositeLines;
 	
 	public CompositeProduct(double price, double discount) {
+		compositeLines = new ArrayList<>();
 		this.price = price;
 		this.discount = discount;
 	}
