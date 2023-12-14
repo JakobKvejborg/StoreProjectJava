@@ -8,7 +8,12 @@ package model;
 public class CompositeLine {
 	private int quantity;	
 	private AbstractProduct product;
-
+	
+	/**
+	 * contains a product and the quantity of it
+	 * @param quantity		the amount of a specific product
+	 * @param product		a specific product
+	 */
 	public CompositeLine(int quantity, AbstractProduct product) {
 		this.quantity = quantity;
 		this.product = product;

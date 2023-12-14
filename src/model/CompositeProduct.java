@@ -15,6 +15,11 @@ public class CompositeProduct {
 	private double discount;
 	private ArrayList<CompositeLine> compositeLines;
 	
+	/**
+	 * contains a composite products price and discount
+	 * @param price		
+	 * @param discount	
+	 */
 	public CompositeProduct(double price, double discount) {
 		compositeLines = new ArrayList<>();
 		this.price = price;
