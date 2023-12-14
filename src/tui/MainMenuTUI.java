@@ -37,8 +37,9 @@ public class MainMenuTUI {
 				new CustomerTUI().start();
 				break;
 			case 3:
-				//should not make it to the final build.
-				//TODO: Generate Test data
+				// should not make it to the final build.
+				TryMe.createCustomers();
+				TryMe.createProducts();
 				break;
 			default:
 				System.out.println("Please enter a valid number!");
@@ -52,7 +53,7 @@ public class MainMenuTUI {
 		System.out.println("0: quit.");
 		System.out.println("1: Sale Menu.");
 		System.out.println("2: Customer Menu.");
-		//should not make it to the final build.
+		// should not make it to the final build.
 		System.out.println("3: Generate Test Data.");
 
 		return textInput.readInt();

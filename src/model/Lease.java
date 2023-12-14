@@ -1,6 +1,8 @@
 package model;
 
 import java.time.LocalDateTime;
+import model.SaleOrderLine;
+import java.util.ArrayList;
 /**
  * @author Jakob & Jonas
  * 
@@ -11,10 +13,12 @@ public class Lease extends AbstractProduct {
 	private double totalPaid;
 	private LocalDateTime paymentDue;
 	private String state;
+	private ArrayList<SaleOrderLine> saleOrderLines;
 	
 	
 	public Lease(String name, String descripton, String barcode, double purchasePrice, double totalPaid, LocalDateTime paymentDue, String state) {
 		super(name, descripton, barcode, purchasePrice);
+		saleOrderLines = new ArrayList<>();
 		this.totalPaid = totalPaid;
 		this.paymentDue = paymentDue;
 		this.state = state;
@@ -39,6 +43,9 @@ public class Lease extends AbstractProduct {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
+	public void addSaleOrderLine(SaleOrderLine saleOrderLine) {
+		saleOrderLines.add(saleOrderLine);
+	}
 	
 }

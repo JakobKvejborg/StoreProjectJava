@@ -32,7 +32,7 @@ public class SaleTUI {
 	public SaleTUI(Employee employee, Location location) {
 		this.employee = employee;
 		this.location = location;
-		saleCtrl = new MockSaleCtrl(employee);
+		saleCtrl = new SaleCtrl(employee,location);
 		textInput = TextInput.getInstance();
 
 	}
@@ -60,9 +60,7 @@ public class SaleTUI {
 			if (isQuitText(barcode)) {
 				allProductsAdded = true;
 			} else {
-				System.out.println("Product added: Desk"); //TODO
 				SellableIF product = addProduct(barcode);
-				
 				System.out.println("Input product barcode. If all products have been added, input next.");
 			}
 
@@ -97,6 +95,7 @@ public class SaleTUI {
 		if (product == null) {
 			System.out.println("Could not read barcode, or product could not be sold, try again.");
 		} else {
+			System.out.println("Product Added: " + product.getName());
 			if (!product.isUnique()) {
 				setQuantity();
 			}
@@ -147,7 +146,6 @@ public class SaleTUI {
 				}
 			}
 		}
-		
 		return customer;
 	}
 

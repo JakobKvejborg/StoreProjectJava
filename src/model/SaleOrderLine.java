@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 public class SaleOrderLine {
 
 	private SellableIF product;
+	private LendableIF tools;
 	private int quantity;
 
 	/**
@@ -25,6 +26,13 @@ public class SaleOrderLine {
 		this.product = product;
 		this.quantity = quantity;
 	}
+
+	
+	public SaleOrderLine(LendableIF tools, int quantity) {
+		this.tools = tools;
+		this.quantity = quantity;
+	}
+
 
 	/**
 	 * gets the price of a product
@@ -57,5 +65,9 @@ public class SaleOrderLine {
 	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public LendableIF getTools() {
+		return tools;
 	}
 }

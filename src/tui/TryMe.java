@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import model.Customer;
 import model.CustomerContainer;
-	
+import model.OrderContainer;
 import model.ShelfProduct;
 import model.ProductContainer;
 
@@ -19,7 +19,6 @@ public class TryMe {
 	private static CustomerContainer customerContainer;
 	private static ProductContainer productContainer;
 	private static OrderContainer orderContainer;
-	private static LeaseContainer leaseContainer;
 	
 	public static void createCustomers() {
 		customerContainer = CustomerContainer.getInstance();
