@@ -66,7 +66,7 @@ public class SaleTUI {
 
 		}
 		Customer customer = setCustomer();
-		System.out.println("total price of sale:" + sale.getPrice());
+		System.out.println("total price of sale: " + sale.getPrice());
 		System.out.println("Payment in DKK: ");
 		double payment = inputPayment();
 		sale = saleCtrl.completeSale(payment);

@@ -20,5 +20,4 @@ public interface SaleCtrlIF {
 	public boolean setQuantity(int quantity);
 	public Sale makeSale();
 	public Sale completeSale(double payment);
-	void createCustomer(String name, String address, String phone, String email);
 }

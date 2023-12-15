@@ -10,9 +10,11 @@ import java.util.ArrayList;
 public class ProductContainer {
 	private static ProductContainer instance;
 	private ArrayList<AbstractProduct> products;
+	private ArrayList<AbstractCopy> copies;
 	
 	private ProductContainer() {
 		products = new ArrayList<>();
+		copies = new ArrayList<>();
 	}
 	
 	public static ProductContainer getInstance() {
@@ -42,6 +44,43 @@ public class ProductContainer {
 		}
 		return res;
 	}
+	
+	
+	public AbstractCopy findCopy(String barcode) {
+		//Binary Search could be implemented if the list is always sorted.
+		AbstractCopy res = null;
+		boolean found = false;
+		for (int i = 0; i < copies.size() && !found; i++) {
+			//ProductContainer product = products.get(i);
+			AbstractCopy copy = copies.get(i);
+			if (copy.getBarcode().equals(barcode)) {
+				res = copy;
+				found = true;
+			}
+		}
+		return res;
+	}
+	
+	public SellableIF findSellable(String barcode) {
+		SellableIF res = null;
+		AbstractCopy copy = findCopy(barcode);
+		//Check if the found copy can be sold
+		if(copy instanceof SellableIF) {
+			//change the static type of the copy to a SellableIF
+			res = (SellableIF) copy;
+		}
+		else {
+			// if no copy that works is found:
+			AbstractProduct product = findProduct(barcode);
+			//Check if the product can be sold
+			if (product instanceof SellableIF) {
+				//change the static type of the product to SellableIF
+				res = (SellableIF) product;
+			}
+		}
+		return res;
+	}
+	
 	/** 
 	 * adds a product to list 
 	 * @param product		represents a product
@@ -49,8 +88,28 @@ public class ProductContainer {
 	 */
 	public boolean addProduct(AbstractProduct product) {
 		boolean res = false;
-		if(findProduct(product.getBarcode()) == null) {
+		if(!hasBarcode(product.getBarcode())) {
 			products.add(product);
+			//TODO: sort the list
+			res = true;
+		}
+		return res;
+	}
+	
+	public boolean hasBarcode(String barcode) {
+		boolean res = true;
+		if(findCopy(barcode) == null) {
+			if(findProduct(barcode) == null) {
+				res = false;
+			}
+		}
+		return res;
+	}
+
+	public boolean addCopy(AbstractCopy copy) {
+		boolean res = false;
+		if(!hasBarcode(copy.getBarcode())) {
+			copies.add(copy);
 			//TODO: sort the list
 			res = true;
 		}

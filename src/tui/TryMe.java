@@ -6,6 +6,8 @@ import model.Customer;
 import model.CustomerContainer;
 import model.OrderContainer;
 import model.ShelfProduct;
+import model.UniqueCopy;
+import model.UniqueProduct;
 import model.ProductContainer;
 
 /**
@@ -22,8 +24,8 @@ public class TryMe {
 	
 	public static void createCustomers() {
 		customerContainer = CustomerContainer.getInstance();
-		Customer customer1 = new Customer("CustomerName1", "Address1", "11111111", "mail1@mail.dk");
-		Customer customer2 = new Customer("CustomerName2", "Address2", "22222222", "mail2@mail.dk");
+		Customer customer1 = new Customer("John", "UCN", "12345678", "School@UCN.dk");
+		Customer customer2 = new Customer("Jane", "The Moon", "87654321", "Moonbase@Alpha.dk");
 		
 		customerContainer.addCustomer(customer1);
 		customerContainer.addCustomer(customer2);
@@ -31,11 +33,24 @@ public class TryMe {
 	
 	public static void createProducts() {
 		productContainer = ProductContainer.getInstance();
-		ShelfProduct product1 = new ShelfProduct("ProductName1", "ProductDestription1", "123456", 9.99, 19.99, 0, LocalDateTime.now());
-		ShelfProduct product2 = new ShelfProduct("ProductName2", "ProductDestription2", "654321", 25.99, 35.99, 15, LocalDateTime.now());
+		ShelfProduct product1 = new ShelfProduct("Table", "Has 4 legs", "123456", 9.99, 19.99, 0, LocalDateTime.now());
+		ShelfProduct product2 = new ShelfProduct("Chair", "Only has 3 legs", "654321", 25.99, 35.99, 0.15, LocalDateTime.now());
 	
 		productContainer.addProduct(product1);
 		productContainer.addProduct(product2);
+		
+		UniqueProduct product3 = new UniqueProduct("Fridge", "Very cold", "111", 399.99, 699.99, 0.05, LocalDateTime.now(), "This warrenty is a String!");
+		
+		productContainer.addProduct(product3);
+		
+		UniqueCopy copy1 = new UniqueCopy("222", product3);
+		UniqueCopy copy2 = new UniqueCopy("333", product3);
+		
+		productContainer.addCopy(copy1);
+		productContainer.addCopy(copy2);
+
+		
+
 	}
 	
 }

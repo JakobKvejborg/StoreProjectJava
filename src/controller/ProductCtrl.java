@@ -2,6 +2,7 @@ package controller;
 
 import model.AbstractProduct;
 import model.ProductContainer;
+import model.SellableIF;
 
 /**
  * @author Jonas og Jakob
@@ -15,5 +16,9 @@ public class ProductCtrl {
 	
 	public AbstractProduct findProduct(String barcode) {
 		return productContainer.findProduct(barcode);
+	}
+	
+	public SellableIF findSellable(String barcode) {
+		return productContainer.findSellable(barcode);
 	}
 }
