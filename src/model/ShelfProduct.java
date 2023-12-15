@@ -37,6 +37,16 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 		return res;
 	}
 	
+	public int getStock(Location location) {
+		int res = 0;
+		for(int i = 0; i < stocks.size(); i++) {
+			if(stocks.get(i).getAisle().getLocation() == location) {
+				res += stocks.get(i).getQuantity();
+			}
+		}
+		return res;
+	}
+	
 	/**
 	 * makes it so the class can't be unique
 	 */
@@ -46,5 +56,25 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 	
 	public double getPrice(LocalDateTime date) {
 		return price.getPrice(date) * (1 - discount.getPrice(date));
+	}
+
+	/**
+	 * Adds a stock to the product. Cannot add the same stock twice.
+	 * @param stock
+	 * @return if the stock was successfully added
+	 */
+	public boolean addStock(ShelfStock stock) {
+		boolean res = true;
+		boolean found = false;
+		for(int i = 0; i < stocks.size() && !found; i++) {
+			if(stocks.get(i) == stock) {
+				found = true;
+			}
+		}
+		if(!found) {
+			stocks.add(stock);
+			res = true;
+		}
+		return res;
 	}
 }

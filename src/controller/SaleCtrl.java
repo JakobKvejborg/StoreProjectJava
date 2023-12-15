@@ -47,6 +47,12 @@ public class SaleCtrl implements SaleCtrlIF {
 		return customer;
 	}
 	
+	public Customer setCustomer(Customer customer) {
+		sale.setCustomer(customer);
+		return customer;
+	}
+	
+	
 	/**
 	 * finds a product, checks if it can be sold, and adds it to the sale in the form of a <code>SaleOrderLine</code>.
 	 * 
@@ -57,13 +63,19 @@ public class SaleCtrl implements SaleCtrlIF {
 	//Maybe this function should throw exceptions if the product isn't sellable,
 	//or if no product is found.
 	public SellableIF addProduct(String barcode) {
-		SellableIF sellable = productCtrl.findSellable(barcode);
-		if(sellable != null) {
+		SellableIF product = productCtrl.findSellable(barcode);
+		if(product != null) {
 			//TODO: prevent multiple of the same unique item being added
 			//TODO: handle when two of the same item non-unique item is added.
-			sale.addSaleOrderLine(new SaleOrderLine(sellable, 1));
+			//check if there's at least one of the item.
+			if(product.getStock(location) >= 1) {
+				sale.addSaleOrderLine(new SaleOrderLine(product, 1));
+			}
+			else {
+				product = null;
+			}
 		}
-		return sellable;
+		return product;
 	}
 	
 	/**
@@ -77,12 +89,19 @@ public class SaleCtrl implements SaleCtrlIF {
 		if(quantity < 1) {
 			return false;
 		}
+		
 		//get the last SaleOrderLine in the sale
 		SaleOrderLine saleOrderLine = sale.getSaleOrderLine(sale.getSaleOrderLinesSize() - 1);
 		//check if the SaleOrderLine exists and if the quantity can be anything other than 1 (guard clause)
 		if(saleOrderLine == null || saleOrderLine.getProduct().isUnique()) {
 			return false;
 		}
+		
+		//check if there's enough stock:
+		if(saleOrderLine.getProduct().getStock(location) < quantity) {
+			return false;
+		}
+		
 		//set the quantity
 		saleOrderLine.setQuantity(quantity);
 		return true;

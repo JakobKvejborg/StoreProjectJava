@@ -39,7 +39,7 @@ public class MainMenuTUI {
 			case 3:
 				// should not make it to the final build.
 				TryMe.createCustomers();
-				TryMe.createProducts();
+				TryMe.createProducts(location);
 				break;
 			default:
 				System.out.println("Please enter a valid number!");

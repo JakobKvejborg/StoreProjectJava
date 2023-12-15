@@ -2,13 +2,17 @@ package tui;
 
 import java.time.LocalDateTime;
 
+import model.Aisle;
 import model.Customer;
 import model.CustomerContainer;
+import model.Location;
 import model.OrderContainer;
 import model.ShelfProduct;
+import model.ShelfStock;
 import model.UniqueCopy;
 import model.UniqueProduct;
 import model.ProductContainer;
+import model.UniqueStock;
 
 /**
  * This class is used to create test environment with dummy data.
@@ -37,11 +41,19 @@ public class TryMe {
 	/**
 	 * This method creates two <code>ShelfProduct</code> as dummy data and adds them to <code>productContainer</code>.
 	 */
-	public static void createProducts() {
+	public static void createProducts(Location location) {
+		
+		Aisle aisle = new Aisle("Area 51, shelf 3.", location);
+		
 		productContainer = ProductContainer.getInstance();
 		ShelfProduct product1 = new ShelfProduct("Table", "Has 4 legs", "123456", 9.99, 19.99, 0, LocalDateTime.now());
 		ShelfProduct product2 = new ShelfProduct("Chair", "Only has 3 legs", "654321", 25.99, 35.99, 0.15, LocalDateTime.now());
-	
+		ShelfStock product1Stock = new ShelfStock(aisle, 5, 2, 20);
+		ShelfStock product2Stock = new ShelfStock(aisle, 12, 3, 20);
+
+		product1.addStock(product1Stock);
+		product2.addStock(product2Stock);
+		
 		productContainer.addProduct(product1);
 		productContainer.addProduct(product2);
 		
@@ -51,6 +63,9 @@ public class TryMe {
 		
 		UniqueCopy copy1 = new UniqueCopy("222", product3);
 		UniqueCopy copy2 = new UniqueCopy("333", product3);
+		UniqueStock copyStock = new UniqueStock(aisle, 2, 7);
+		copy1.setStock(copyStock);
+		copy2.setStock(copyStock);
 		
 		productContainer.addCopy(copy1);
 		productContainer.addCopy(copy2);

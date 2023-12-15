@@ -58,4 +58,10 @@ public class MockSaleCtrl implements SaleCtrlIF {
 		sale.setEmployee(employee);
 		return sale;
 	}
+
+	@Override
+	public Customer setCustomer(Customer customer) {
+		sale.setCustomer(customer);
+		return customer;
+	}
 }

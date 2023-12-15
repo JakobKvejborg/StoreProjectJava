@@ -128,7 +128,7 @@ public class SaleTUI {
 		Customer customer = createNewCustomer();
 		if (customer != null){
 			//could add a function where a customer is added directly, instead of being found. Would be more efficient.
-			customer = saleCtrl.setCustomer(customer.getPhone());
+			customer = saleCtrl.setCustomer(customer);
 		} else {
 			boolean success = false;
 			while (!success) {

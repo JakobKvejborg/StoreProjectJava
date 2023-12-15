@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class UniqueStock {
 	private int minQuanity;
 	private int maxQuantity;
-	private ArrayList<UniqueCopy> uniqueCopies;
-	private LendableCopy lendableCopy;
+	private Aisle aisle;
+	private ArrayList<AbstractCopy> copies;
 	
-	public UniqueStock(int minQuanity, int maxQuantity) {
+	public UniqueStock(Aisle aisle, int minQuanity, int maxQuantity) {
 		this.minQuanity = minQuanity;
 		this.maxQuantity = maxQuantity;
-		uniqueCopies = new ArrayList<>();
+		copies = new ArrayList<>();
 	}
 
 	public int getMinQuanity() {
@@ -20,6 +20,10 @@ public class UniqueStock {
 
 	public int getMaxQuantity() {
 		return maxQuantity;
+	}
+
+	public Aisle getAisle() {
+		return aisle;
 	}
 	
 }

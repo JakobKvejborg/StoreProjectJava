@@ -16,6 +16,7 @@ import model.SellableIF;
 public interface SaleCtrlIF {
 
 	public Customer setCustomer(String phone);
+	public Customer setCustomer(Customer customer);
 	public SellableIF addProduct(String barcode);
 	public boolean setQuantity(int quantity);
 	public Sale makeSale();
