@@ -13,12 +13,12 @@ public class Customer extends AbstractPerson{
 	private CustomerGroup customerGroup;
 	
 	/**
-     * Constructs a Customer object with the provided details.
+     * This method constructs a <code>Customer</code> object with the provided details.
      *
-     * @param name    The name of the customer.
-     * @param address The address of the customer.
-     * @param phone   The phone number of the customer.
-     * @param email   The email address of the customer.
+     * @param name    The name associated with the customer.
+     * @param address The address associated with the customer.
+     * @param phone   The phone number associated with the customer.
+     * @param email   The email address associated with the customer.
      */
 	public Customer(String name, String address, String phone, String email) {
 		super(name, address, phone, email);
@@ -35,7 +35,7 @@ public class Customer extends AbstractPerson{
 
 	/**
 	 * This method gets <code>customerGroup</code>.
-	 * @return a <code>customerGroup</code>.
+	 * @return a <code>customerGroup</code> representing a <code>CustomerGroup</code>.
 	 */
 	public CustomerGroup getCustomerGroup() {
 		return customerGroup;
@@ -47,7 +47,6 @@ public class Customer extends AbstractPerson{
 	
 	/**
      * Retrieves the maximum discount applicable to this customer based on their group.
-     *
      * @return The maximum discount available for this customer.
      */
 	public double getMaxDiscount(LocalDateTime date) {
