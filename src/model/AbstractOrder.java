@@ -2,17 +2,14 @@ package model;
 
 import java.time.LocalDateTime;
 
-
 /**
- * the abstract order than all the different lending or sale types inherit from.
+ * The <code>AbstractOrder</code> class represents an abstract order entity.
+ * It contains common attributes and methods for orders.
+ * All the different lending or sale types inherit from <code>AbstractOrder</code>.
  * 
  * @author Penrose
- * @version 07/12/2023
- */
-
-/**
- * The AbstractOrder class represents an abstract order entity.
- * It contains common attributes and methods for orders.
+ * @version 15/12/2023
+ * @since 07/12/2023
  */
 public abstract class AbstractOrder {
 	private int orderNo;
@@ -21,7 +18,7 @@ public abstract class AbstractOrder {
 	private Employee employee;
 	
 	 /**
-     * Constructs an AbstractOrder object with the provided order number and date.
+     * This method constructs an <code>AbstractOrder</code> object with the provided order number and date.
      *
      * @param orderNo The order number associated with this order.
      * @param date    The date and time when the order was made.
@@ -32,26 +29,32 @@ public abstract class AbstractOrder {
 	}
 	
 	/**
-     * Sets the customer associated with this order.
-     *
-     * @param customer The Customer object linked to this order.
+     * This method sets the customer associated with this order.
+     * @param customer The <code>Customer</code> object linked to this order.
      */
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 	
+	/**
+	 * This method gets <code>customer</code>.
+	 * @return a <code>string</code> representing a customer.
+	 */
 	public Customer getCustomer() {
 		return customer;
 	}
 	
+	/**
+	 * This method gets <code>date</code>.
+	 * @return a <code>LocalDateTime</code> representing a date.
+	 */
 	public LocalDateTime getDate() {
 		return date;
 	}
 	
 	/**
      * Sets the employee attached to this order.
-     *
-     * @param employee The Employee object handling this order.
+     * @param employee The <code>Employee</code> object handling this order.
      */
 	public void setEmployee(Employee employee) {
 		this.employee = employee;

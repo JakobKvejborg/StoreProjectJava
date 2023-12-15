@@ -3,10 +3,11 @@ package model;
 import java.time.LocalDateTime;
 
 /**
- * @author Jonas
+ * The <code>Customer</code> class represents a customer.
  * 
- *@version 11/12/2023
- *@since 07/12/2023
+ * @author Jonas
+ * @version 15/12/2023
+ * @since 07/12/2023
  */
 public class Customer extends AbstractPerson{
 	private CustomerGroup customerGroup;
@@ -24,16 +25,18 @@ public class Customer extends AbstractPerson{
 		customerGroup = CustomerGroup.getDefaultCustomerGroup();
 	}
 
-	
 	/**
      * Sets the customer group of this customer.
-     *
      * @param customerGroup The CustomerGroup object representing the customer's group.
      */
 	public void setCustomerGroup(CustomerGroup customerGroup) {
 		this.customerGroup = customerGroup;
 	}
-	
+
+	/**
+	 * This method gets <code>customerGroup</code>.
+	 * @return a <code>customerGroup</code>.
+	 */
 	public CustomerGroup getCustomerGroup() {
 		return customerGroup;
 	}
