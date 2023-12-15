@@ -58,10 +58,4 @@ public class MockSaleCtrl implements SaleCtrlIF {
 		sale.setEmployee(employee);
 		return sale;
 	}
-
-	@Override
-	public void createCustomer(String name, String address, String phone, String email) {
-
-	}
-
 }

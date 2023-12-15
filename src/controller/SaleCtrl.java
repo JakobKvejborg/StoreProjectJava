@@ -57,21 +57,13 @@ public class SaleCtrl implements SaleCtrlIF {
 	//Maybe this function should throw exceptions if the product isn't sellable,
 	//or if no product is found.
 	public SellableIF addProduct(String barcode) {
-		//find the product
-		AbstractProduct abstractProduct = productCtrl.findProduct(barcode);
-		//initialise the SellableIF to null.
-		SellableIF product = null;
-		//check if the product can be sold (implements SellableIF). this is also false if no product was found.
-		if(abstractProduct instanceof SellableIF) {
-			//cast the abstractProduct as a SellableIF. Aka, changing the static type to SellableIF.
-			//this is always possible because of the previous if statement making sure it is.
-			product = (SellableIF) abstractProduct;
-			//create a SaleOrderLine with the SellableIF product, and a quantity of 1.
-			//the quantity can be updated via the setQuantity method.
-			sale.addSaleOrderLine(new SaleOrderLine(product, 1));
+		SellableIF sellable = productCtrl.findSellable(barcode);
+		if(sellable != null) {
+			//TODO: prevent multiple of the same unique item being added
+			//TODO: handle when two of the same item non-unique item is added.
+			sale.addSaleOrderLine(new SaleOrderLine(sellable, 1));
 		}
-		//return the product
-		return product;
+		return sellable;
 	}
 	
 	/**
@@ -115,16 +107,13 @@ public class SaleCtrl implements SaleCtrlIF {
 	//TODO: figure out what to do if the customer overpays.
 	public Sale completeSale(double payment) {
 		// TODO make sure the sale has proper values
+		Sale res = null;
 		if(payment >= sale.getPrice()) {
 			sale.setEmployee(employee);
 			orderContainer.addOrder(sale);
-			return sale;
+			res = sale;
+			sale = null;
 		}
-		return null;
-	}
-
-	@Override
-	public void createCustomer(String name, String address, String phone, String email) {
-
+		return res;
 	}
 }

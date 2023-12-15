@@ -38,6 +38,7 @@ public class TemporalPriceList {
 				found = true;
 			}
 		}
+		//TODO: throw an error when no price is found.
 		return res;
 	}
 	

@@ -1,41 +1,48 @@
 package model;
 
+import java.time.LocalDateTime;
+
 /**
- * @author Jonas
- * @version 12-12-2023
+ * @author Jonas, Penrose
+ * @version 15-12-2023
  * @since 12-12-2023
  */
 public class UniqueProduct extends AbstractProduct {
 	private String defaultWarrenty;
-	private double price;
-	private double discount;
+	private TemporalPriceList price;
+	private TemporalPriceList discount;
 	
-	public UniqueProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount, String defaultWarrenty) {
+	public UniqueProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount, LocalDateTime creationDate, String defaultWarrenty) {
 		super(name, descripton, barcode, purchasePrice);
 		this.defaultWarrenty = defaultWarrenty;
-		this.price = price;
-		this.discount = discount;
+		this.price = new TemporalPriceList();
+		this.price.addPrice(price, creationDate);
+		this.discount = new TemporalPriceList();
+		this.discount.addPrice(discount, creationDate);
 	}
 
 	public void setDefaultWarrenty(String warrenty) {
-		this.defaultWarrenty = defaultWarrenty;
+		this.defaultWarrenty = warrenty;
 	}
 
-	public double getPrice() {
-		return price;
+	public double getPrice(LocalDateTime date) {
+		return price.getPrice(date) * (1 - discount.getPrice(date));
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void addPrice(double price, LocalDateTime date) {
+		this.price.addPrice(price, date);
 	}
 
-	public void setDiscount(double discount) {
-		this.discount = discount;
+	public void addDiscount(double discount, LocalDateTime date) {
+		this.discount.addPrice(discount, date);
+	}
+	
+	public String getDefaultWarrenty() {
+		return defaultWarrenty;
 	}
 
 	public boolean isUnique() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 
