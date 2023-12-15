@@ -6,7 +6,6 @@ import model.Aisle;
 import model.Customer;
 import model.CustomerContainer;
 import model.Location;
-import model.OrderContainer;
 import model.ShelfProduct;
 import model.ShelfStock;
 import model.UniqueCopy;
@@ -24,7 +23,6 @@ import model.UniqueStock;
 public class TryMe {
 	private static CustomerContainer customerContainer;
 	private static ProductContainer productContainer;
-	private static OrderContainer orderContainer;
 	
 	/**
 	 * This method creates two <code>Customer</code> as dummy data and adds them to <code>customerContainer</code>.
