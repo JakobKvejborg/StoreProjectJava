@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 public class UniqueCopy extends AbstractCopy implements SellableIF{
 	private String warrenty;
 	private UniqueProduct product;	
-	private UniqueStock stock;
 	
 	public UniqueCopy(String barcode,UniqueProduct product) {
 		super(barcode);
@@ -42,18 +41,18 @@ public class UniqueCopy extends AbstractCopy implements SellableIF{
 	public int getStock(Location location) {
 		int res = 0;
 		//check if it has stock assigned, and if it is at the given location.
-		if(stock != null && stock.getLocation() == location) {
+		if(getStock() != null && getStock().getLocation() == location) {
 			res = 1;
 		}
-		return 1;
+		return res;
 	}
 
 	@Override
 	public boolean decrementStock(int quanity, Location location) {
 		boolean res = false;
-		if (getStock(location) == 1) {
-			res = stock.removeCopy(this);
-			stock = null;
+		if (getStock(location) >= 1) {
+			res = getStock().removeCopy(this);
+			setStock(null);
 		}
 		return res;
 	}

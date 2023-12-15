@@ -55,6 +55,8 @@ public class UniqueStock extends AbstractStock {
 		}
 		return found;
 	}
+	
+	
 	/**
 	 * removes a copy from the stock.
 	 * 

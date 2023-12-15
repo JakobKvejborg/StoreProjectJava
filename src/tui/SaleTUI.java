@@ -1,9 +1,5 @@
 package tui;
 
-import java.util.Scanner;
-
-import controller.CustomerCtrl;
-import controller.MockSaleCtrl;
 import controller.SaleCtrl;
 import controller.SaleCtrlIF;
 import model.Customer;
@@ -50,6 +46,9 @@ public class SaleTUI {
 		return text.equalsIgnoreCase("c");
 	}
 
+	/**
+	 * creates a sale all the way to completion.
+	 */
 	private void createSale() {
 		Sale sale = saleCtrl.makeSale();
 	
