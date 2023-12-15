@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
  */
 public class UniqueCopy extends AbstractCopy implements SellableIF{
 	private String warrenty;
-	private UniqueProduct product;	
+	private UniqueProduct product;
 	
 	public UniqueCopy(String barcode,UniqueProduct product) {
 		super(barcode);
