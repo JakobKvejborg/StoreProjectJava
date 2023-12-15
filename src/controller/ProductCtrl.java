@@ -13,7 +13,7 @@ public class ProductCtrl {
 		this.productContainer = ProductContainer.getInstance();
 	}
 	
-	public AbstractProduct findProduct(String barcode) {
-		return productContainer.findProduct(barcode);
+	public AbstractProduct findProduct(String productId) {
+		return productContainer.findProduct(productId);
 	}
 }
