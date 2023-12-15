@@ -25,7 +25,7 @@ public interface SellableIF {
 	
 	public int getStock(Location location);
 	
-	public boolean decrementStock(int quanity, Location location);
+	public boolean decrementStock(int quantity, Location location);
 	
 	
 }
