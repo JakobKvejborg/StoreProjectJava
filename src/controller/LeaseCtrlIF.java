@@ -1,21 +1,18 @@
 package controller;
 
+import model.AbstractProduct;
 import model.Lease;
 import model.LendableIF;
+import model.SaleOrderLine;
 
 /**
- * @author Jakob
+ * @author Jakob, Majbritt Kjeldgaard Harsfort
  *
- *@version 14/12/2023
- *@since 14/12/2023
+ * @version 15/12/2023
+ * @since 14/12/2023
  */
 
 public interface LeaseCtrlIF {
-
-public LendableIF addTools(String barcode);
-public Lease makeLease();
-public Lease completeLease(double payment);
-
-
+	public Lease makeLease();
+	public Lease completeLease(double payment);
 }
-

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * @author Jakob, Jonas, Majbritt Kjeldgaard Harsfort
  * 
- * @version 14/12/2023
+ * @version 15/12/2023
  * @since 12/12/2023
  */
 public class Lease extends AbstractOrder {

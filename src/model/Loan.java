@@ -18,7 +18,6 @@ public class Loan extends AbstractOrder {
 	}
 
 	public boolean isUnique() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
