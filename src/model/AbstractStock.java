@@ -6,12 +6,12 @@ public abstract class AbstractStock {
 
 	private Location location;
 	private ArrayList<Aisle> aisles;
-	private int minQuanity;
+	private int minQuantity;
 	private int maxQuantity;
 	
 	public AbstractStock(Location location, int minQuantity, int maxQuantity) {
 		this.location = location;
-		this.setMinQuanity(minQuantity);
+		this.setMinQuantity(minQuantity);
 		this.setMaxQuantity(maxQuantity);
 	}
 
@@ -27,12 +27,12 @@ public abstract class AbstractStock {
 		this.maxQuantity = maxQuantity;
 	}
 
-	public int getMinQuanity() {
-		return minQuanity;
+	public int getMinQuantity() {
+		return minQuantity;
 	}
 
-	public void setMinQuanity(int minQuanity) {
-		this.minQuanity = minQuanity;
+	public void setMinQuantity(int minQuantity) {
+		this.minQuantity = minQuantity;
 	}
 
 	/**
