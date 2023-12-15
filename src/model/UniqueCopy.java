@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDateTime;
 
 /**
- * @author Jonas
+ * @author Jonas, penrose
  * @version 12-12-2023
  * @since 12-12-2023
  */
@@ -42,10 +42,20 @@ public class UniqueCopy extends AbstractCopy implements SellableIF{
 	public int getStock(Location location) {
 		int res = 0;
 		//check if it has stock assigned, and if it is at the given location.
-		if(stock != null && stock.getAisle().getLocation() == location) {
+		if(stock != null && stock.getLocation() == location) {
 			res = 1;
 		}
 		return 1;
+	}
+
+	@Override
+	public boolean decrementStock(int quanity, Location location) {
+		boolean res = false;
+		if (getStock(location) == 1) {
+			res = stock.removeCopy(this);
+			stock = null;
+		}
+		return res;
 	}
 	
 }

@@ -24,4 +24,8 @@ public interface SellableIF {
 	String getName();
 	
 	public int getStock(Location location);
+	
+	public boolean decrementStock(int quanity, Location location);
+	
+	
 }

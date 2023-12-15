@@ -30,7 +30,7 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 	public int getQuantity(Location location) {
 		int res = 0;
 		for(int i = 0; i < stocks.size(); i++) {
-			if(stocks.get(i).getAisle().getLocation().equals(location)) {
+			if(stocks.get(i).getLocation().equals(location)) {
 				res += stocks.get(i).getQuantity();
 			}
 		}
@@ -40,7 +40,7 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 	public int getStock(Location location) {
 		int res = 0;
 		for(int i = 0; i < stocks.size(); i++) {
-			if(stocks.get(i).getAisle().getLocation() == location) {
+			if(stocks.get(i).getLocation() == location) {
 				res += stocks.get(i).getQuantity();
 			}
 		}
@@ -50,10 +50,17 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 	/**
 	 * makes it so the class can't be unique
 	 */
+	@Override
 	public boolean isUnique() {
 		return false;
 	}
 	
+	
+	/**
+	 * gets tthe price at a specific date
+	 * @param date
+	 */
+	@Override
 	public double getPrice(LocalDateTime date) {
 		return price.getPrice(date) * (1 - discount.getPrice(date));
 	}
@@ -74,6 +81,27 @@ public class ShelfProduct extends AbstractProduct implements SellableIF {
 		if(!found) {
 			stocks.add(stock);
 			res = true;
+		}
+		return res;
+	}
+
+	/**
+	 * decrements the stock at a given location
+	 * 
+	 * @return returns false if there isn't enough stock at a location.
+	 */
+	@Override
+	public boolean decrementStock(int quantity, Location location) {
+		boolean res = false;
+		boolean found = false;
+		for(int i = 0; i < stocks.size() && !found; i++) {
+			if(stocks.get(i).getLocation() == location) {
+				if( stocks.get(i).getQuantity() >= quantity) {
+					stocks.get(i).decreaseQuantity(quantity);
+					res = true;
+					found = true;
+				}
+			}
 		}
 		return res;
 	}

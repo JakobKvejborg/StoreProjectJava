@@ -39,17 +39,17 @@ public class TryMe {
 	}
 	
 	/**
-	 * This method creates two <code>ShelfProduct</code> as dummy data and adds them to <code>productContainer</code>.
+	 * This method creates two <code>ShelfProduct</code> and <code>UniqueCopy</code> as dummy data and adds them to <code>productContainer</code> and stock.
 	 */
 	public static void createProducts(Location location) {
 		
-		Aisle aisle = new Aisle("Area 51, shelf 3.", location);
+		//Aisle aisle = new Aisle("Area 51, shelf 3.", location);
 		
 		productContainer = ProductContainer.getInstance();
 		ShelfProduct product1 = new ShelfProduct("Table", "Has 4 legs", "123456", 9.99, 19.99, 0, LocalDateTime.now());
 		ShelfProduct product2 = new ShelfProduct("Chair", "Only has 3 legs", "654321", 25.99, 35.99, 0.15, LocalDateTime.now());
-		ShelfStock product1Stock = new ShelfStock(aisle, 5, 2, 20);
-		ShelfStock product2Stock = new ShelfStock(aisle, 12, 3, 20);
+		ShelfStock product1Stock = new ShelfStock(location, 5, 2, 20);
+		ShelfStock product2Stock = new ShelfStock(location, 12, 3, 20);
 
 		product1.addStock(product1Stock);
 		product2.addStock(product2Stock);
@@ -63,9 +63,11 @@ public class TryMe {
 		
 		UniqueCopy copy1 = new UniqueCopy("222", product3);
 		UniqueCopy copy2 = new UniqueCopy("333", product3);
-		UniqueStock copyStock = new UniqueStock(aisle, 2, 7);
+		UniqueStock copyStock = new UniqueStock(location, 2, 7);
 		copy1.setStock(copyStock);
 		copy2.setStock(copyStock);
+		copyStock.addCopy(copy1);
+		copyStock.addCopy(copy2);
 		
 		productContainer.addCopy(copy1);
 		productContainer.addCopy(copy2);

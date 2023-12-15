@@ -1,27 +1,39 @@
 package model;
 
-public class ShelfStock {
+/**
+ * Handles stock for ShelfProducts.
+ * 
+ * @author Penrose
+ * 
+ * @version 15/12/2023
+ * @since 14/12/2023
+ */
+public class ShelfStock extends AbstractStock {
 	
-	private Aisle aisle;
 	private int quantity;
-	private int minQuantity;
-	private int maxQuantity;
 	
-	public ShelfStock(Aisle aisle, int quantity, int minQuantity, int maxQuantity) {
-		this.aisle = aisle;
+	public ShelfStock(Location location, int quantity, int minQuantity, int maxQuantity) {
+		super(location, minQuantity, maxQuantity);
 		this.quantity = quantity;
-		this.minQuantity = minQuantity;
-		this.maxQuantity = maxQuantity;
-	}
-	
-	public Aisle getAisle() {
-		return aisle;
+		
 	}
 
+	/**
+	 * returns the quantity of the product.
+	 * 
+	 * @return the quantity of the product.
+	 */
 	public int getQuantity() {
 		return quantity;
 	}
 
+	
+	/**
+	 * decreases the quantity by the given amount.
+	 * 
+	 * @param amount
+	 * @return true if the quantity was successfully reduced
+	 */
 	public boolean decreaseQuantity(int amount){
 		boolean res = false;
 		if(quantity >= amount) {

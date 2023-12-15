@@ -66,7 +66,7 @@ public class SaleCtrl implements SaleCtrlIF {
 		SellableIF product = productCtrl.findSellable(barcode);
 		if(product != null) {
 			//TODO: prevent multiple of the same unique item being added
-			//TODO: handle when two of the same item non-unique item is added.
+			//TODO: handle when two of the same non-unique item is added.
 			//check if there's at least one of the item.
 			if(product.getStock(location) >= 1) {
 				sale.addSaleOrderLine(new SaleOrderLine(product, 1));
@@ -129,6 +129,15 @@ public class SaleCtrl implements SaleCtrlIF {
 		Sale res = null;
 		if(payment >= sale.getPrice()) {
 			sale.setEmployee(employee);
+			
+			for(int i = 0; i < sale.getSaleOrderLinesSize(); i++) {
+				//reduce the stock of each item in the sale
+				boolean success = sale.getSaleOrderLine(i).getProduct().decrementStock(
+						sale.getSaleOrderLine(i).getQuantity(), location);
+				//if success is false, the stock was not handled correctly.
+				//TODO: figure out what to do.
+			}
+			
 			orderContainer.addOrder(sale);
 			res = sale;
 			sale = null;
