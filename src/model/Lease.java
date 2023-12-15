@@ -3,49 +3,35 @@ package model;
 import java.time.LocalDateTime;
 import model.SaleOrderLine;
 import java.util.ArrayList;
+
 /**
- * @author Jakob & Jonas
+ * @author Jakob, Jonas, Majbritt Kjeldgaard Harsfort
  * 
- * @version 14-12-2023
- * @since 12-12-2023
+ * @version 14/12/2023
+ * @since 12/12/2023
  */
-public class Lease extends AbstractProduct {
+public class Lease extends AbstractOrder {
 	private double totalPaid;
 	private LocalDateTime paymentDue;
 	private String state;
-	private ArrayList<SaleOrderLine> saleOrderLines;
-	
-	
-	public Lease(String name, String descripton, String barcode, double purchasePrice, double totalPaid, LocalDateTime paymentDue, String state) {
-		super(name, descripton, barcode, purchasePrice);
-		saleOrderLines = new ArrayList<>();
+
+	public Lease(int orderNo, LocalDateTime date, double totalPaid) {
+		super(orderNo, date);
 		this.totalPaid = totalPaid;
-		this.paymentDue = paymentDue;
-		this.state = state;
-		
+		this.paymentDue = date.plusMonths(1);
+		this.state = "Leased";
+
 	}
-	
+
 	public double getTotalPaid() {
 		return totalPaid;
 	}
-
 
 	public LocalDateTime getPaymentDue() {
 		return paymentDue;
 	}
 
-
 	public String getState() {
 		return state;
 	}
-
-	public boolean isUnique() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public void addSaleOrderLine(SaleOrderLine saleOrderLine) {
-		saleOrderLines.add(saleOrderLine);
-	}
-	 
 }

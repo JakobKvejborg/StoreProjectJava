@@ -14,7 +14,7 @@ import model.ProductContainer;
  * This class is used to create test environment with dummy data.
  * 
  * @author Patrick Thor Sorenson De Siqueira
- * @version 14/12/2023
+ * @version 15/12/2023
  * @since 14/12/2023
  */
 public class TryMe {
@@ -22,6 +22,9 @@ public class TryMe {
 	private static ProductContainer productContainer;
 	private static OrderContainer orderContainer;
 	
+	/**
+	 * This method creates two <code>Customer</code> as dummy data and adds them to <code>customerContainer</code>.
+	 */
 	public static void createCustomers() {
 		customerContainer = CustomerContainer.getInstance();
 		Customer customer1 = new Customer("John", "UCN", "12345678", "School@UCN.dk");
@@ -31,6 +34,9 @@ public class TryMe {
 		customerContainer.addCustomer(customer2);
 	}
 	
+	/**
+	 * This method creates two <code>ShelfProduct</code> as dummy data and adds them to <code>productContainer</code>.
+	 */
 	public static void createProducts() {
 		productContainer = ProductContainer.getInstance();
 		ShelfProduct product1 = new ShelfProduct("Table", "Has 4 legs", "123456", 9.99, 19.99, 0, LocalDateTime.now());
