@@ -40,6 +40,8 @@ public class MainMenuTUI {
 				// should not make it to the final build.
 				TryMe.createCustomers();
 				TryMe.createProducts(location);
+				System.out.println("Test data generated.");
+				System.out.println();
 				break;
 			default:
 				System.out.println("Please enter a valid number!");

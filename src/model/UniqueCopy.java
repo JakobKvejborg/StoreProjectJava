@@ -14,12 +14,12 @@ public class UniqueCopy extends AbstractCopy implements SellableIF{
 	public UniqueCopy(String barcode,UniqueProduct product) {
 		super(barcode);
 		this.product = product;
-		this.warrenty = product.getDefaultWarrenty();
+		this.warrenty = product.getDefaultWarranty();
 		
 	}
 
-	public void setWarrenty(String warrenty) {
-		this.warrenty = warrenty;
+	public void setWarranty(String warranty) {
+		this.warrenty = warranty;
 	}
 	
 

@@ -8,21 +8,21 @@ import java.time.LocalDateTime;
  * @since 12-12-2023
  */
 public class UniqueProduct extends AbstractProduct {
-	private String defaultWarrenty;
+	private String defaultWarranty;
 	private TemporalPriceList price;
 	private TemporalPriceList discount;
 	
-	public UniqueProduct(String name, String descripton, String barcode, double purchasePrice, double price, double discount, LocalDateTime creationDate, String defaultWarrenty) {
-		super(name, descripton, barcode, purchasePrice);
-		this.defaultWarrenty = defaultWarrenty;
+	public UniqueProduct(String name, String description, String barcode, double purchasePrice, double price, double discount, LocalDateTime creationDate, String defaultWarranty) {
+		super(name, description, barcode, purchasePrice);
+		this.defaultWarranty = defaultWarranty;
 		this.price = new TemporalPriceList();
 		this.price.addPrice(price, creationDate);
 		this.discount = new TemporalPriceList();
 		this.discount.addPrice(discount, creationDate);
 	}
 
-	public void setDefaultWarrenty(String warrenty) {
-		this.defaultWarrenty = warrenty;
+	public void setDefaultWarranty(String warranty) {
+		this.defaultWarranty = warranty;
 	}
 
 	public double getPrice(LocalDateTime date) {
@@ -37,8 +37,8 @@ public class UniqueProduct extends AbstractProduct {
 		this.discount.addPrice(discount, date);
 	}
 	
-	public String getDefaultWarrenty() {
-		return defaultWarrenty;
+	public String getDefaultWarranty() {
+		return defaultWarranty;
 	}
 
 	public boolean isUnique() {
