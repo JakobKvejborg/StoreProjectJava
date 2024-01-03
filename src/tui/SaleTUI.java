@@ -30,7 +30,6 @@ public class SaleTUI {
 		this.location = location;
 		saleCtrl = new SaleCtrl(employee,location);
 		textInput = TextInput.getInstance();
-
 	}
 
 	public void start() {
@@ -154,7 +153,7 @@ public class SaleTUI {
 	 * @return The amount of cash paid by the user as a <code>double</code>.
 	 */
 	private double inputPayment() {
-		//TODO: make this accept payment by card and such, never happening in the time we have been alloted.
+		//TODO: make this accept payment by card and such.
 		double payment = textInput.readDouble();
 		
 		return payment;
@@ -185,17 +184,20 @@ public class SaleTUI {
 			System.out.println("---------------");
 			System.out.print("total:\t");
 			System.out.println(sale.getPrice());
+			System.out.print("OrderNo:\t");
+			System.out.println(sale.getOrderNo());
 			if(sale.getCustomer() != null) {
 				System.out.println("Customer attached to the sale: ");
 				System.out.println("Name: " + sale.getCustomer().getName());
 				System.out.println("Phone: " + sale.getCustomer().getPhone());
 				System.out.println("Address: " + sale.getCustomer().getAddress());
 				System.out.println("Email: " + sale.getCustomer().getEmail());
+				System.out.println();
 
 				//TODO print customer information
 			}
 			else {
-				System.out.println("No customer attached to the sale.");
+				System.out.println("No customer attached to the sale." + "\n");
 			}
 
 		}

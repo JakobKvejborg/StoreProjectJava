@@ -10,6 +10,7 @@ import model.OrderContainer;
 import model.Sale;
 import model.SaleOrderLine;
 import model.SellableIF;
+import tui.MainMenuTUI;
 
 /**
  * @author Jonas og Jakob
@@ -26,7 +27,6 @@ public class SaleCtrl implements SaleCtrlIF {
 	private ProductCtrl productCtrl;
 	private CustomerCtrl customerCtrl;
 	private Sale sale;
-//	private int lastOrderNumber = 0; // delete
 	
 	public SaleCtrl(Employee employee, Location location) {
 		this.employee = employee;
@@ -57,7 +57,7 @@ public class SaleCtrl implements SaleCtrlIF {
 	/**
 	 * finds a product, checks if it can be sold, and adds it to the sale in the form of a <code>SaleOrderLine</code>.
 	 * 
-	 * @param the barcode of the product to be added
+	 * @param barcode of the product added
 	 * @return the found product in the form of a <code>SellableIF</code>.
 	 * returns null if the no product has the barcode or the product cannot be sold.
 	 */
@@ -108,15 +108,14 @@ public class SaleCtrl implements SaleCtrlIF {
 		return true;
 	}
 
+
 	/**
 	 * creates a new sale.
 	 * @return returns the created sale.
 	 */
 	public Sale makeSale() {
 		//TODO Assign proper orderNo
-//		int newOrderNumber = ++lastOrderNumber; // delete
-		sale = new Sale(1, LocalDateTime.now());
-		System.out.println("orderNo: ");
+		sale = new Sale(0, LocalDateTime.now());
 		return sale;
 	}
 

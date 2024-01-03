@@ -1,5 +1,7 @@
 package model;
 
+import org.apache.logging.log4j.core.util.JsonUtils;
+
 import java.time.LocalDateTime;
 
 /**
@@ -12,7 +14,8 @@ import java.time.LocalDateTime;
  * @since 07/12/2023
  */
 public abstract class AbstractOrder {
-	private int orderNo;
+	private static int lastOrderNo = 0;
+	private int orderNo = 0;
 	private LocalDateTime date; 
 	private Customer customer;
 	private Employee employee;
@@ -24,7 +27,7 @@ public abstract class AbstractOrder {
      * @param date    The date and time when the order was made.
      */
 	public AbstractOrder(int orderNo, LocalDateTime date) {
-		this.orderNo = orderNo;
+		this.orderNo = ++lastOrderNo;
 		this.date = date;
 	}
 	
@@ -59,5 +62,10 @@ public abstract class AbstractOrder {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	
+
+
+	public int getOrderNo() {
+		return orderNo;
+	}
+
 }

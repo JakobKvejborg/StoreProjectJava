@@ -15,7 +15,7 @@ public class Sale extends AbstractOrder {
     private double craftmanDiscount;
     private double quantityDiscount;
     private double collectionDiscount;
-//	private int orderNo = 100000;
+
 
     private ArrayList<SaleOrderLine> saleOrderLines;
 
